@@ -3,9 +3,9 @@
 (function () {
     angular.module("app")
         .controller("homeController",
-        ["$state", "$log", '$window', HomeCtrl]);
+        ["$state", '$window', HomeCtrl]);
 
-    function HomeCtrl($state, $log, $window) {
+    function HomeCtrl($state, $window) {
         var vm = this;
         
         vm.isAtDashboard = function () {
@@ -17,7 +17,6 @@
         };
 
         vm.navigateToDashboard = function () {
-            $log.debug("Going to dahsboard");
             $state.go("home.dashboard");
         };
 
@@ -26,13 +25,11 @@
         };
 
         vm.navigateToProject = function () {
-            $log.debug("Going to project");
             $state.go("home.project");
         };
 
         vm.logout = function () {
             delete $window.sessionStorage.token;
-            $log.debug("Logging out");
             $state.go("login");
         };
     }

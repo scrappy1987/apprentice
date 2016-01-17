@@ -6,9 +6,9 @@
      */
     angular.module('app')
         .controller("projectItemController",
-        ["$log", "$state", "repository", ProjectItemCtrl]);
+        ["$state", "projectRepository", ProjectItemCtrl]);
 
-    function ProjectItemCtrl($log, $state, repository) {
+    function ProjectItemCtrl($state, projectRepository) {
         var vm = this;
         // name constant - for trace and debugging
         vm.controllerName = "projectItemController";
@@ -25,7 +25,7 @@
                         waitingDialog = BootstrapDialog.show({
                             message: 'Please wait - Deleting project'
                         });
-                        repository.deleteProject(project).then(function () {
+                        projectRepository.deleteProject(project).then(function () {
                             waitingDialog.close();
                         }, function (error) {
                             // TODO error
@@ -36,8 +36,7 @@
         };
 
         vm.amend = function (project) {
-            // needs to send state to amend state with the project id
-            $state.go("home.project.add", {id: project.id});
+           //TODO amend
         };
     }
 

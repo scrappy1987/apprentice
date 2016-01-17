@@ -4,9 +4,9 @@
 
     angular.module('app')
         .controller("projectFormController",
-        ["$log", "repository", "$state", ProjectFormCtrl]);
+        ["$log", "projectRepository", "$state", ProjectFormCtrl]);
 
-    function ProjectFormCtrl($log, repository, $state) {
+    function ProjectFormCtrl($log, projectRepository, $state) {
         var vm = this;
         
         vm.hasValidationError = false;
@@ -24,7 +24,7 @@
                 message: 'Please wait - Creating Project'
             });
 
-            repository.saveProject(vm.project).then(function (project) {
+            projectRepository.saveProject(vm.project).then(function (project) {
                 waitingDialog.close();
                 BootstrapDialog.show({
                     message: 'Project Saved successfully',

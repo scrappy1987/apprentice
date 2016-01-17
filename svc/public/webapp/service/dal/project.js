@@ -2,37 +2,26 @@
 
 (function () {
 
-    angular.module("dal")
-        .decorator("dal",
-        ["$delegate", "servicecaller", ProjectDal]);
+    angular.module("app").service("projectDal", ["dal", ProjectDal]);
 
-    function ProjectDal ($delegate, servicecaller) {
-        /**
-         * @param criteria
-         * @returns {*}
-         */
-        $delegate.getProject = function (criteria) {
-            return servicecaller.GET("project", criteria);
+    function ProjectDal (dal) {
+
+        this.getProjects = function () {
+            return dal.http.GET("project");
         };
 
-        /**
-         * @param projectToSave
-         * @returns {*}
-         */
-        $delegate.saveProject = function (projectToSave) {
+        this.saveProject = function (projectToSave) {
             projectToSave.status = "In progress";
-            return servicecaller.POST("project", projectToSave);
+            return dal.http.POST("project", projectToSave);
         };
 
-        /**
-         * @param projectToDelete
-         * @returns {*}
-         */
-        $delegate.deleteProject = function (projectToDelete) {
-            return servicecaller.DELETE("project/", projectToDelete);
+        this.updateProject = function (projectToUpdate) {
+            return dal.http.PUT("project/", projectToUpdate);
         };
 
-        // Returns the decorated DAL service back to angular
-        return $delegate;
+        this.deleteProject = function (projectToDelete) {
+            return dal.http.DELETE("project/", projectToDelete);
+        };
+
     }
 }());
