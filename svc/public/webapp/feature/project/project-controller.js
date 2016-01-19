@@ -4,18 +4,10 @@
 
     angular.module('app')
         .controller("projectController",
-        ["projectRepository", ProjectCtrl]);
+        ["$log", ProjectCtrl]);
 
-    function ProjectCtrl(projectRepository ) {
+    function ProjectCtrl($log) {
         var vm = this;
-
-        vm.controllerName = "projectController";
-
-        projectRepository.getProjects().then(function (results) {
-             vm.projects = results;
-         }, function (error) {
-             vm.error = true;
-             vm.errorMessage = error;
-         });
+        $log.debug("Instantiated projectController controller");
     }
 }());

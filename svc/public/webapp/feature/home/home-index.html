@@ -2,12 +2,12 @@
 <div class="home" data-ng-controller="homeController as homeCtrl">
     <header>
         <ul class="nav nav-tabs">
-            <li data-ng-class="{'active': homeCtrl.isAtDashboard()}"><a data-ng-click="homeCtrl.navigateToDashboard()">Help/Start</a></li>
+            <li data-ng-class="{'active': homeCtrl.isAtDashboard()}"><a data-ng-click="homeCtrl.navigateToDashboard()">Dashboard</a></li>
             <li class="dropdown" data-ng-class="{'active': homeCtrl.isAtProject() }">
-                <a class="dropdown-toggle" data-toggle="dropdown">Sample <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown">Assets <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a data-ng-click="homeCtrl.navigateToProject()">Manage Project</a></li>
-                    <li><a data-ng-click="homeCtrl.navigateToAddProject()">Add New Project</a></li>
+                    <li><a data-ng-click="homeCtrl.navigateToProject()">Add Assets</a></li>
+                    <li><a data-ng-click="homeCtrl.navigateToAddProject()">Manage Assets</a></li>
                 </ul>
             </li>
             <li class="navbar-right right-nav-tab"><a data-ng-click="homeCtrl.logout()">Logout</a></li>
