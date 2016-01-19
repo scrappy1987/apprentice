@@ -1,12 +1,9 @@
 "use strict";
 
 (function () {
-    /**
-     * Set up the top level states and default root.
-     */
+
     angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
 
-        // Default route - note that this is the URL router and therefore requires the url path not the state
         $urlRouterProvider.otherwise("login");
 
         $stateProvider.state("login", {
@@ -31,7 +28,6 @@
                     templateUrl: "feature/home/home-index.html"
                 }
             }
-
         }).state("home.dashboard", {
             url: "/dashboard",
             views: {
@@ -39,18 +35,18 @@
                     templateUrl: "feature/dashboard/dashboard-index.html"
                 }
             }
-        }).state("home.project", {
-            url: "/project",
+        }).state("home.asset", {
+            url: "/asset",
             views: {
                 "home-content": {
-                    templateUrl: "feature/project/project-index.html"
+                    templateUrl: "feature/asset/manage-asset.html"
                 }
             }
-        }).state("home.projectadd", {
-            url: "/project/add",
+        }).state("home.addasset", {
+            url: "/asset/addasset",
             views: {
                 "home-content": {
-                    templateUrl: "feature/project/project-form.html"
+                    templateUrl: "feature/asset/add-asset.html"
                 }
             }
         })
