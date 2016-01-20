@@ -2,9 +2,9 @@
 
 (function () {
 
-    angular.module("app").service("dal", ["$http", "$q", "$log", Dal]);
+    angular.module("app").service("serviceCaller", ["$http", "$q", "$log", ServiceCaller]);
 
-    function Dal ($http, $q, $log) {
+    function ServiceCaller ($http, $q, $log) {
         this.http = (function serviceCaller() {
             return {
 
@@ -69,6 +69,6 @@
                 }
             }
         })();
-        $log.debug("DAL Instantiated");
+        $log.debug("serviceCaller Instantiated");
     }
 }());

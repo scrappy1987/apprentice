@@ -8,12 +8,15 @@ module.exports = (function () {
     }
 
     LoginPage.prototype.visitPage = function () {
-        var url = browser.get("/");
-        return url;
+        return browser.get("/");
     };
 
-    LoginPage.prototype.fillInDetails = function (username, password) {
-        return this.usernameField.sendKeys(username) && this.passwordField.sendKeys(password);
+    LoginPage.prototype.fillUsername  = function (username) {
+        return this.usernameField.clear().sendKeys(username);
+    };
+
+    LoginPage.prototype.fillPassword  = function (password) {
+        return this.passwordField.sendKeys(password);
     };
 
     LoginPage.prototype.login = function () {

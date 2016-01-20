@@ -10,7 +10,7 @@
 
     function AppCtrl($log) {
         var vm = this;
-        $log.debug("Application Instantiated");
+        $log.debug("Instantiated appController controller");
     }
 
 }());

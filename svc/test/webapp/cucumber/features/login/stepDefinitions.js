@@ -14,8 +14,14 @@ module.exports = function () {
         });
     });
 
-    this.Given(/^I supply valid credentials$/, function (callback) {
-        login.fillInDetails("admin", "password").then(function () {
+    this.Given(/^I supply a valid username$/, function (callback) {
+        login.fillUsername("admin").then(function () {
+            callback();
+        })
+    });
+
+    this.Given(/^I supply a valid password/, function (callback) {
+        login.fillPassword("password").then(function () {
             callback();
         })
     });
