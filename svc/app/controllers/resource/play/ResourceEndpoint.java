@@ -22,7 +22,7 @@ public abstract class ResourceEndpoint<T extends Service> extends Controller
         this.service = service;
     }
 
-    // GET {path}/project
+    // GET {path}/resource
     @Transactional public Result list()
     {
         JsonNode jsonResponse = service.list();
@@ -30,7 +30,7 @@ public abstract class ResourceEndpoint<T extends Service> extends Controller
         return ok(jsonResponse);
     }
 
-    // GET {path}/project/:id
+    // GET {path}/resource/:id
     @Transactional public Result find(Long id)
     {
         JsonNode jsonResponse = service.find(getIdAsJson(id));
@@ -38,7 +38,7 @@ public abstract class ResourceEndpoint<T extends Service> extends Controller
         return ok(jsonResponse);
     }
 
-    // POST {path}/project
+    // POST {path}/resource
     @Transactional public Result create()
     {
         JsonNode jsonResponse = service.create(request().body().asJson());
@@ -46,7 +46,7 @@ public abstract class ResourceEndpoint<T extends Service> extends Controller
         return ok(jsonResponse);
     }
 
-    // PUT {path}/project
+    // PUT {path}/resource
     @Transactional public Result update()
     {
         JsonNode jsonResponse = service.update(request().body().asJson());
@@ -54,7 +54,7 @@ public abstract class ResourceEndpoint<T extends Service> extends Controller
         return ok(jsonResponse);
     }
 
-    // DELETE {path}/project/:id
+    // DELETE {path}/resource/:id
     @Transactional public Result delete(Long id)
     {
         JsonNode jsonResponse = service.delete(getIdAsJson(id));
