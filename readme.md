@@ -27,7 +27,6 @@ Index
 
 - [Http Layer](#HttpLayer)
 - [Business Service Layer](#BusinessServiceLayer)
-- [Repository Layer](#RepositoryLayer)
 - [Persistence Layer](#PersistenceLayer)
 
 **[3. Angular Component](#AngularComponent)**
@@ -76,25 +75,13 @@ The Business Service layer services provide a [façade](https://en.wikipedia.org
 
 Each service operation should inherit from the ServiceOperation superclass, with any application "cross cutting" behaviour (e.g. application level authentication and authorization, audit, error handling) being managed by the ServiceOperation superclass. Comments have been included in this class as a placeholder for this logic to be included if required.
 
-<a name="RepositoryLayer"></a>
-### 2.3 Repository Layer ###
-
-The Repository is an abstraction layer, hiding details of any persistence mechanism from the applications business logic in the Business Service layer. This abstraction layer enables the persistence mechanism to be changed without having an effect on the Business layer. It also facilitates testing of the Business layer in isolation from the Persistence layer.
-
-This seed provides a basic example of a Repository implementation, the [ProjectJpaRepository](./svc/app/models/repository/jpa/ProjectJpaRepository.java), which persists to a Relational H2 database, using the JPA interface with a Hibernate implementation. 
-
-To change the persistence mechanism, a new implementation of the [Repository`<Project`>](./svc/app/models/services/project/ProjectRepository.java) needs to be created and injected into the Business layers service operations. To change the implementation of the Repository being injected into the Business Layer operations, amend the bindings defined in [RepositoriesModule](./svc/app/util/inject/play/RepositoriesModule.java).
-
-A Repository should be created for the "aggregate root" (i.e. the root object in the object graph) of an application feature or component. Defining the granularity of repositories is something that has to be carried out on a project by project basis. 
-
-E.g. If we have a feature called Manage Person Details, where a Person has an associated address, employment, income etc, then the aggregate root would be the object from which all these details can be accessed, which in this example would most likely be Person. A Repository`<Person>` interface would then be defined and used by the Business Layer to access Person and its associated data. A Repository`<Person>` implementation would be created for the required persistence mechanism. 
 
 <a name="PersistenceLayer"></a>
-### 2.4 Persistence Layer ###
+### 2.3 Persistence Layer ###
 
 The Persistence layer provides the application persistence mechanism and its persistence model. This seed uses JPA with a Hibernate implementation to persist data to an in-memory H2 database. 
 
-#### 2.4.1 Configuration ####
+#### 2.3.1 Configuration ####
 
 This requires the following configuration (already set up in the seed).
 
@@ -106,7 +93,7 @@ b) conf/META-INF/persistence.xml - Defines the persistence unit for the applicat
 
 c) build.sbt - include the dependencies for javaJpa and hibernate.
 
-#### 2.4.2 High Level Class Structure ####
+#### 2.3.2 High Level Class Structure ####
 ![](./docs/img/persistence.gif)
 
 *GenericReadOnlyDao*: Base class for all application Data access objects, providing methods to find, list and search for entities. An EntityManager instance is made available through the EntityManagerProvider factory class. This is obtained from the play.db.jpa.JPA.em() static method returning an entity manager instance for the currently running thread.
