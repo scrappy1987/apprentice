@@ -8,34 +8,34 @@ module.exports = function () {
     this.setDefaultTimeout(60000);
     var login = new LoginPage;
 
-    this.Given(/I am on the login view/, function (callback) {
+    this.Given(/I am on the login view/, function (next) {
         login.visitPage().then(function () {
-            callback();
+            next();
         });
     });
 
-    this.Given(/^I supply a valid username$/, function (callback) {
+    this.Given(/^I supply a valid username$/, function (next) {
         login.fillUsername("admin").then(function () {
-            callback();
+            next();
         })
     });
 
-    this.Given(/^I supply a valid password/, function (callback) {
+    this.Given(/^I supply a valid password/, function (next) {
         login.fillPassword("password").then(function () {
-            callback();
+            next();
         })
     });
 
-    this.When(/^I login$/, function (callback) {
+    this.When(/^I login$/, function (next) {
         login.login().then(function () {
-            callback();
+            next();
         });
     });
 
-    this.Then(/^I see the dashboard$/, function (callback) {
+    this.Then(/^I see the dashboard$/, function (next) {
         login.currentURL().then(function (currentURL) {
             assert.equal("http://localhost:9000/#/dashboard", currentURL);
-            callback();
+            next();
         });
     });
 

@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Regular expression for pattern validation
+ * Regular expression examples for pattern validation
  */
 var $$dataType = {
     /* Normal surname and forenames */

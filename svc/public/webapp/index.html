@@ -27,8 +27,7 @@
 
   <!--Application-->
   <script src="app.js"></script>
-  <script src="app-controller.js"></script>
-  <script src="app-state-manager.js"></script>
+  <script src="states/app-state-manager.js"></script>
 
   <!--Services-->
   <script src="service/dal/service-caller.js"></script>
@@ -45,13 +44,9 @@
   <script src="feature/dashboard/dashboard-controller.js"></script>
   <link rel="stylesheet/less" href="feature/dashboard/dashboard.less" type="text/css"/>
 
-  <script src="feature/asset/manage-asset-controller.js"></script>
-  <script src="feature/asset/add-asset-controller.js"></script>
-  <link rel="stylesheet/less" href="feature/asset/asset.less" type="text/css"/>
-
   <!--LESS pre-processor - needs to be last -->
   <script src="lib/less/less.min.js"></script>
 </head>
-<body data-ui-view="content" data-ng-controller="appController">
+<body data-ui-view="content">
 </body>
 </html>

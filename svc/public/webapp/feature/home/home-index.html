@@ -2,13 +2,7 @@
     <header>
         <ul class="nav nav-tabs">
             <li data-ng-class="{'active': homeCtrl.isAtDashboard()}"><a data-ng-click="homeCtrl.navigateToDashboard()">Dashboard</a></li>
-            <li class="dropdown" data-ng-class="{'active': homeCtrl.isAtAsset() }">
-                <a class="dropdown-toggle" data-toggle="dropdown">Assets <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a data-ng-click="homeCtrl.navigateToAsset()">Manage Assets</a></li>
-                    <li><a data-ng-click="homeCtrl.navigateToAddAsset()">Add Asset</a></li>
-                </ul>
-            </li>
+            <!--add asset navigation here-->
             <li class="navbar-right right-nav-tab"><a data-ng-click="homeCtrl.logout()">Logout</a></li>
         </ul>
 

@@ -35,20 +35,6 @@
                     templateUrl: "feature/dashboard/dashboard-index.html"
                 }
             }
-        }).state("home.asset", {
-            url: "/asset",
-            views: {
-                "home-content": {
-                    templateUrl: "feature/asset/manage-asset.html"
-                }
-            }
-        }).state("home.addasset", {
-            url: "/asset/addasset",
-            views: {
-                "home-content": {
-                    templateUrl: "feature/asset/add-asset.html"
-                }
-            }
         })
     });
 }());
