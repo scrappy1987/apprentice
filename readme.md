@@ -155,7 +155,7 @@ The Repository Layer is a cache for data gathered from the server side Play appl
 
 The repository service is wrapped in an [Immediately Invoked Function Expression](https://github.com/johnpapa/angular-styleguide#iife), so that the repository service is defined outside of the Global scope. 
 
-The [Angular decorator mechanism](https://docs.angularjs.org/api/ng/type/angular.Module) is used to add functionality to the core repository implementation for each of the application features. This is demonstrated in the [project.js](./svc/public/webapp/service/repository/project.js) file, where the core repository implementation defined in [repository.js](./svc/public/webapp/service/repository/repository.js) is decorated with functions to manage project specific data.
+The [Angular decorator mechanism](https://docs.angularjs.org/api/ng/type/angular.Module) is used to add functionality to the core repository implementation for each of the application features. This is demonstrated in the [asset.js](./svc/public/webapp/service/repository/asset.js) file, where the core repository implementation defined in [repository.js](./svc/public/webapp/service/repository/repository.js) is decorated with functions to manage project specific data.
 
 **Note**: This mechanism for adding functionality to the core repository implementation can lead to issues if multiple decorators both add the same named function to the repository. In this instance, the function in the decorator defined last in the index.html file would take precedence.
 
@@ -172,7 +172,7 @@ The DAL should only be accessed from the Repository layer, with the Controllers 
 
 The DAL employs the promise mechanism to avoid blocking the serving thread while waiting for an HTTP response. This means that any calls to the DAL will also return a promise. All HTTP calls initiated from the DAL layer should be routed through the [service-caller.js](./svc/public/webapp/service/dal/dal.js) component.
 
-Like the Repository layer, The [Angular decorator mechanism](https://docs.angularjs.org/api/ng/type/angular.Module) is used to add functionality to the core data access component implementation for each of the application features. This is demonstrated in the [project.js](./svc/public/webapp/service/dal/project.js) file, where the core data access component implementation defined in [dal.js](./svc/public/webapp/service/util/service-caller.js) is decorated with functions to manage project specific data.
+Like the Repository layer, The [Angular decorator mechanism](https://docs.angularjs.org/api/ng/type/angular.Module) is used to add functionality to the core data access component implementation for each of the application features. This is demonstrated in the [asset.js](./svc/public/webapp/service/dal/asset.js) file, where the core data access component implementation defined in [dal.js](./svc/public/webapp/service/util/service-caller.js) is decorated with functions to manage project specific data.
 
 **Note**: Again, like with the repository, this mechanism for adding functionality to the core data access component implementation can lead to issues if multiple decorators both add the same named function to the data access component. In this instance, the function in the decorator defined last in the index.html file would take precedence.
 

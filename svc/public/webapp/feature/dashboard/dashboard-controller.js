@@ -7,6 +7,6 @@
 
     function DashboardCtrl ($log) {
         var vm = this;
-        $log.debug("At Start Page");
+        $log.debug("Instantiated dashboardController controller");
     }
 }());
