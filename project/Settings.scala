@@ -33,6 +33,7 @@ object Settings {
     // other, legacy style, accesses its actions statically.
     routesGenerator := InjectedRoutesGenerator,
     javaSource in Test := baseDirectory.value  / "test" / "java" / "unit",
+    unmanagedSourceDirectories in Test += baseDirectory.value  / "test" / "java" / "integration",
     resourceDirectory in Test := baseDirectory.value / "test" / "java" / "resources"
     //PlayKeys.externalizeResources := false
   )

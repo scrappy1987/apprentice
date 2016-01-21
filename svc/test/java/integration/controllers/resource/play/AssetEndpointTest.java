@@ -6,18 +6,11 @@ import org.junit.Test;
 
 import static play.test.Helpers.inMemoryDatabase;
 
-public class ProjectsEndpointTest extends EndpointTest
+public class AssetEndpointTest extends EndpointTest
 {
     @Test public void testCreateProjects()
     {
-        EndpointTestCase testCase = new CreateProjectTestCase();
-
-        runEndpointTest(testCase, inMemoryDatabase());
-    }
-
-    @Test public void testGetProjects()
-    {
-        EndpointTestCase testCase = new GetProjectTestCase();
+        EndpointTestCase testCase = new controllers.resource.play.CreateAssetTestCase();
 
         runEndpointTest(testCase, inMemoryDatabase());
     }

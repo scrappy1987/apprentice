@@ -2,6 +2,8 @@
 
 # --- !Ups
 
+create schema dbo;
+
 create table dbo.T_REF_DATA(
 	id tinyint identity(1,1) NOT NULL,
 	value char(6) NOT NULL,
@@ -117,23 +119,5 @@ create table dbo.T_ASSETS (
 
 # --- !Downs
 
-drop table dbo.T_REF_DATA IF EXISTS;
-
-drop table dbo.T_ASSETS IF EXISTS;
-
-drop table dbo.T_CONTACTS IF EXISTS;
-
-drop table dbo.T_BUSINESS_UNITS IF EXISTS;
-
-drop table dbo.T_COST_CENTRES IF EXISTS;
-
-drop table dbo.T_LOCATIONS IF EXISTS;
-
-drop table dbo.T_FO IF EXISTS;
-
-drop table dbo.T_MODELS IF EXISTS;
-
-drop table dbo.T_CATEGORIES IF EXISTS;
-
-drop schema dbo IF EXISTS;
+drop schema dbo;
 
