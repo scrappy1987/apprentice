@@ -8,10 +8,15 @@
 
     function LoginCtrl($state, $log) {
         var vm = this;
+
         $log.debug("Instantiated loginController controller");
 
         vm.login = function () {
-            $state.go("home.dashboard");
+        vm.credentials = {username: vm.username, password: vm.password};
+
+        console.log(vm.credentials);
+        $state.go("home.dashboard");
         };
     }
+
 }());
