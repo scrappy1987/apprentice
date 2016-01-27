@@ -11,7 +11,7 @@ import java.util.List;
 
 public class StatusDaoTest
 {
-    private StatusDaoTestBuilder statusDaoTestBuilder = new StatusDaoTestBuilder();
+    private DaoTestBuilder statusDaoTestBuilder = new DaoTestBuilder();
     private EntityManager mockEntityManager;
 
     private StatusDao statusDao;
@@ -20,9 +20,12 @@ public class StatusDaoTest
     @Before
     public void init()
     {
-        statusDaoTestBuilder.createStatusTestObjects();
+        statusDaoTestBuilder.createTestObjects();
         statusDao = new StatusDao(statusDaoTestBuilder.getMockEntityManagerProvider());
+
+        statusDaoTestBuilder.setStatus();
         status = statusDaoTestBuilder.getStatus();
+
         mockEntityManager = statusDaoTestBuilder.getMockEntityManager();
     }
 
