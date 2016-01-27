@@ -1,4 +1,24 @@
-<h1>Add login page here</h1>
 <div data-ng-controller="loginController as loginCtrl">
-    <button id="login" class="btn btn-primary" data-ng-click="loginCtrl.login()">Login</button>
+
+    <div class="login-container">
+
+        <form name="loginForm">
+            <h1>Login to Your Account</h1>
+
+            <input id="username" type="email" name="userEmail" placeholder="Username" data-ng-model="loginCtrl.username" required autofocus/>
+            <div ng-messages="loginForm.userEmail.$error" ng-if="loginForm.userEmail.$touched" role="alert">
+                <p><div ng-message="email">This is not a valid email</div></p>
+                <p ng-message="required">Email is Required</p>
+            </div>
+
+            <input id="password" type="password" name="userPassword" placeholder="Password" data-ng-model="loginCtrl.password" ng-minlength="6" required/>
+            <div ng-messages="loginForm.userPassword.$error" ng-if="loginForm.userPassword.$touched" role="alert">
+                <p ng-message="minlength">Password is too short</p>
+                <p ng-message="required">Password is Required</p>
+            </div>
+
+            <button id="login" class="login-submit" data-ng-click="loginCtrl.login()">Login</button>
+        </form>
+
+    </div>
 </div>
