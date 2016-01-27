@@ -1,6 +1,7 @@
 package models.persistence.dao;
 
 import models.persistence.dao.play.EntityManagerProvider;
+import models.persistence.entities.OperatingSystem;
 import models.persistence.entities.PropertyType;
 import models.persistence.entities.Status;
 import org.mockito.Mockito;
@@ -13,6 +14,7 @@ public class DaoTestBuilder
 {
     private Status status;
     private PropertyType propertyType;
+    private OperatingSystem operatingSystem;
 
     private EntityManagerProvider mockEntityManagerProvider;
     private EntityManager mockEntityManager;
@@ -39,6 +41,16 @@ public class DaoTestBuilder
     public void setPropertyType()
     {
         this.propertyType = new PropertyType();
+    }
+
+    public void setOperatingSystem()
+    {
+        this.operatingSystem = new OperatingSystem();
+    }
+
+    public OperatingSystem getOperatingSystem()
+    {
+        return operatingSystem;
     }
 
     public PropertyType getPropertyType()
