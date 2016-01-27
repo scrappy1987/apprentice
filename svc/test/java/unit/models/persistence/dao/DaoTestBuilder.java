@@ -1,13 +1,10 @@
 package models.persistence.dao;
 
 import models.persistence.dao.play.EntityManagerProvider;
-<<<<<<< HEAD
 import models.persistence.entities.*;
-=======
 import models.persistence.entities.OperatingSystem;
 import models.persistence.entities.PropertyType;
 import models.persistence.entities.Status;
->>>>>>> 6deadbe746ee20d4203467e07c086415a21cfe1c
 import org.mockito.Mockito;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -19,12 +16,8 @@ public class DaoTestBuilder
     private Status status;
     private PropertyType propertyType;
     private OperatingSystem operatingSystem;
-<<<<<<< HEAD
     private CategoryType categoryType;
     private Brand brand;
-=======
->>>>>>> 6deadbe746ee20d4203467e07c086415a21cfe1c
-
     private EntityManagerProvider mockEntityManagerProvider;
     private EntityManager mockEntityManager;
     private Query mockQuery;
@@ -57,7 +50,6 @@ public class DaoTestBuilder
         this.operatingSystem = new OperatingSystem();
     }
 
-<<<<<<< HEAD
     public void setBrand()
     {
         this.brand = new Brand();
@@ -78,8 +70,6 @@ public class DaoTestBuilder
         return categoryType;
     }
 
-=======
->>>>>>> 6deadbe746ee20d4203467e07c086415a21cfe1c
     public OperatingSystem getOperatingSystem()
     {
         return operatingSystem;

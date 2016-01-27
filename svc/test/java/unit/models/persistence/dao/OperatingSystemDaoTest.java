@@ -63,14 +63,8 @@ public class OperatingSystemDaoTest
     @Test
     public void testList()
     {
-<<<<<<< HEAD
+
         List<OperatingSystem> list = operatingSystemDao.list();
         assertEquals(daoTestBuilder.getMockResultList(), list);
     }
 }
-=======
-        List<OperatingSystem> statusList = operatingSystemDao.list();
-        assertEquals(daoTestBuilder.getMockResultList(), statusList);
-    }
-}
->>>>>>> 6deadbe746ee20d4203467e07c086415a21cfe1c

@@ -13,8 +13,5 @@ public class OperatingSystemDao extends GenericDao<OperatingSystem>
     {
         super(entityManagerProvider);
     }
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 6deadbe746ee20d4203467e07c086415a21cfe1c
