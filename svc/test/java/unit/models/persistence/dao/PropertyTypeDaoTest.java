@@ -59,7 +59,7 @@ public class PropertyTypeDaoTest
     }
 
     @Test
-    public void testListStatus()
+    public void testList()
     {
         List<PropertyType> list = propertyTypeDao.list();
         assertEquals(daoTestBuilder.getMockResultList(), list);
