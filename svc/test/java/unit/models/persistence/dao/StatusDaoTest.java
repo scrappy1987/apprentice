@@ -36,25 +36,23 @@ public class StatusDaoTest
     @Test
     public void testDeleteStatus()
     {
-        statusDao.create(status);
-        statusDao.delete(status);
-        Mockito.verify(mockEntityManager, Mockito.times(1)).persist(status);
+
+        statusDao.delete(1L);
+        Mockito.verify(mockEntityManager, Mockito.times(1)).getReference(Status.class, 1L);
     }
 
     @Test
     public void testUpdateStatus()
     {
-        statusDao.create(status);
         statusDao.update(status);
-        Mockito.verify(mockEntityManager, Mockito.times(1)).persist(status);
+        Mockito.verify(mockEntityManager, Mockito.times(1)).merge(status);
     }
 
     @Test
     public void testFindStatus()
     {
-        statusDao.create(status);
-        statusDao.find(status);
-        Mockito.verify(mockEntityManager, Mockito.times(1)).persist(status);
+        statusDao.find(1L);
+        Mockito.verify(mockEntityManager, Mockito.times(1)).find(Status.class, 1L);
     }
 
     @Test
