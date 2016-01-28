@@ -20,4 +20,36 @@ public class CostCentre
 
     @Column(name = "title", nullable = false)
     private String title;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public FunctionalOrganisation getFunctionalOrg() {
+        return functionalOrg;
+    }
+
+    public void setFunctionalOrg(FunctionalOrganisation functionalOrg) {
+        this.functionalOrg = functionalOrg;
+    }
+
+    public BigDecimal getAccountNo() {
+        return accountNo;
+    }
+
+    public void setAccountNo(BigDecimal accountNo) {
+        this.accountNo = accountNo;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

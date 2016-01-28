@@ -74,4 +74,172 @@ public class Asset
 
     @Column(name = "dAssignment", nullable = false)
     private Date dAssignment;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getAoSDMLastTicketNumber() {
+        return aoSDMLastTicketNumber;
+    }
+
+    public void setAoSDMLastTicketNumber(String aoSDMLastTicketNumber) {
+        this.aoSDMLastTicketNumber = aoSDMLastTicketNumber;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Contact getContact() {
+        return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
+    }
+
+    public String getAssetSerialNo() {
+        return assetSerialNo;
+    }
+
+    public void setAssetSerialNo(String assetSerialNo) {
+        this.assetSerialNo = assetSerialNo;
+    }
+
+    public String getAssetLabel() {
+        return assetLabel;
+    }
+
+    public void setAssetLabel(String assetLabel) {
+        this.assetLabel = assetLabel;
+    }
+
+    public String getAssetAoCiName() {
+        return assetAoCiName;
+    }
+
+    public void setAssetAoCiName(String assetAoCiName) {
+        this.assetAoCiName = assetAoCiName;
+    }
+
+    public PropertyType getPropertyType() {
+        return propertyType;
+    }
+
+    public void setPropertyType(PropertyType propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public String getAssetSeverityName() {
+        return assetSeverityName;
+    }
+
+    public void setAssetSeverityName(String assetSeverityName) {
+        this.assetSeverityName = assetSeverityName;
+    }
+
+    public String getAssetAoServiceScope() {
+        return assetAoServiceScope;
+    }
+
+    public void setAssetAoServiceScope(String assetAoServiceScope) {
+        this.assetAoServiceScope = assetAoServiceScope;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public OperatingSystem getOperatingSystem() {
+        return operatingSystem;
+    }
+
+    public void setOperatingSystem(OperatingSystem operatingSystem) {
+        this.operatingSystem = operatingSystem;
+    }
+
+    public String getComputerTcpIpHostName() {
+        return computerTcpIpHostName;
+    }
+
+    public void setComputerTcpIpHostName(String computerTcpIpHostName) {
+        this.computerTcpIpHostName = computerTcpIpHostName;
+    }
+
+    public String getAoATFExternalTool() {
+        return aoATFExternalTool;
+    }
+
+    public void setAoATFExternalTool(String aoATFExternalTool) {
+        this.aoATFExternalTool = aoATFExternalTool;
+    }
+
+    public String getAoDelete() {
+        return aoDelete;
+    }
+
+    public void setAoDelete(String aoDelete) {
+        this.aoDelete = aoDelete;
+    }
+
+    public String getSeAssignment() {
+        return seAssignment;
+    }
+
+    public void setSeAssignment(String seAssignment) {
+        this.seAssignment = seAssignment;
+    }
+
+    public String getObjectAction() {
+        return objectAction;
+    }
+
+    public void setObjectAction(String objectAction) {
+        this.objectAction = objectAction;
+    }
+
+    public String getObjectType() {
+        return objectType;
+    }
+
+    public void setObjectType(String objectType) {
+        this.objectType = objectType;
+    }
+
+    public Date getAodAssignment() {
+        return aodAssignment;
+    }
+
+    public void setAodAssignment(Date aodAssignment) {
+        this.aodAssignment = aodAssignment;
+    }
+
+    public Date getdAssignment() {
+        return dAssignment;
+    }
+
+    public void setdAssignment(Date dAssignment) {
+        this.dAssignment = dAssignment;
+    }
 }
