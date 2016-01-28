@@ -15,8 +15,8 @@ public class AssetDao extends GenericDao<Asset>
         super(emp);
     }
 
-    public List<Asset> listForContact(Contact contact)
-    {
-        return getEntityManager().createNamedQuery("SELECT a FROM Asset a WHERE a.contact = " + contact).getResultList();
-    }
+    // public List<Asset> listForContact(Contact contact)
+    // {
+        // return getEntityManager().createNamedQuery("SELECT a FROM Asset a WHERE a.contact = " + contact).getResultList();
+    // }
 }
