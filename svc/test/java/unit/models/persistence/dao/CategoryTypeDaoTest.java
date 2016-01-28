@@ -25,7 +25,6 @@ public class CategoryTypeDaoTest
         daoTestBuilder.createTestObjects();
         categoryTypeDao = new CategoryTypeDao(daoTestBuilder.getMockEntityManagerProvider());
 
-        daoTestBuilder.setStatus();
         categoryType = daoTestBuilder.getCategoryType();
 
         mockEntityManager = daoTestBuilder.getMockEntityManager();

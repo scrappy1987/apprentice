@@ -25,7 +25,6 @@ public class OperatingSystemDaoTest
         daoTestBuilder.createTestObjects();
         operatingSystemDao = new OperatingSystemDao(daoTestBuilder.getMockEntityManagerProvider());
 
-        daoTestBuilder.setStatus();
         operatingSystem = daoTestBuilder.getOperatingSystem();
 
         mockEntityManager = daoTestBuilder.getMockEntityManager();

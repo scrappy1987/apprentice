@@ -18,6 +18,9 @@ public class DaoTestBuilder
     private OperatingSystem operatingSystem;
     private CategoryType categoryType;
     private Brand brand;
+    private Asset asset;
+    private Contact contact = new Contact();
+
     private EntityManagerProvider mockEntityManagerProvider;
     private EntityManager mockEntityManager;
     private Query mockQuery;
@@ -30,34 +33,25 @@ public class DaoTestBuilder
         mockQuery = Mockito.mock(Query.class);
         mockResultList = new ArrayList<>();
 
+        Mockito.when(mockEntityManager.createNamedQuery(Mockito.anyString())).thenReturn(mockQuery);
         Mockito.when(mockEntityManagerProvider.getEntityManager()).thenReturn(mockEntityManager);
         Mockito.when(mockEntityManager.createQuery(Mockito.anyString())).thenReturn(mockQuery);
         Mockito.when(mockQuery.getResultList()).thenReturn(mockResultList);
     }
 
-    public void setStatus()
+    public Asset getAsset()
     {
-        this.status = new Status();
+        return asset;
     }
 
-    public void setPropertyType()
+    public void setContact()
     {
-        this.propertyType = new PropertyType();
+        this.contact = contact;
     }
 
-    public void setOperatingSystem()
+    public Contact getContact()
     {
-        this.operatingSystem = new OperatingSystem();
-    }
-
-    public void setBrand()
-    {
-        this.brand = new Brand();
-    }
-
-    public void setCategoryType()
-    {
-        this.categoryType = new CategoryType();
+        return contact;
     }
 
     public Brand getBrand()
