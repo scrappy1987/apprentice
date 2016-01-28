@@ -14,7 +14,7 @@
         vm.login = function () {
         vm.credentials = {username: vm.username, password: vm.password};
 
-        securityManager.setUserCredentials(vm.credentials);
+        securityManager.logIn(vm.credentials)
 
         $state.go("home.dashboard");
         };
