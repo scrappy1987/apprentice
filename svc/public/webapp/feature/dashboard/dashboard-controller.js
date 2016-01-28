@@ -23,12 +23,5 @@
                 message: 'This Button Works Too!'
             });
         }
-
-
-
-
-
     }
-
-
 }());

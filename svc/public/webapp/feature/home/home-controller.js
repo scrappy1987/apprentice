@@ -13,8 +13,16 @@
             return $state.is("home.dashboard");
         };
 
+        vm.isAtAsset = function() {
+            return $state.is("home.assetmanage");
+        };
+
         vm.navigateToDashboard = function () {
             $state.go("home.dashboard");
+        };
+
+        vm.navigateToManageAsset = function () {
+            $state.go("home.assetmanage");
         };
 
         vm.logout = function () {
