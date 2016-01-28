@@ -23,7 +23,6 @@ public class StatusDaoTest
         statusDaoTestBuilder.createTestObjects();
         statusDao = new StatusDao(statusDaoTestBuilder.getMockEntityManagerProvider());
 
-        statusDaoTestBuilder.setStatus();
         status = statusDaoTestBuilder.getStatus();
 
         mockEntityManager = statusDaoTestBuilder.getMockEntityManager();

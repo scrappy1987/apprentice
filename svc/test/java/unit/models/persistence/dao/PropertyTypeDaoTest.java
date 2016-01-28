@@ -23,7 +23,6 @@ public class PropertyTypeDaoTest
         daoTestBuilder.createTestObjects();
         propertyTypeDao = new PropertyTypeDao(daoTestBuilder.getMockEntityManagerProvider());
 
-        daoTestBuilder.setStatus();
         propertyType = daoTestBuilder.getPropertyType();
 
         mockEntityManager = daoTestBuilder.getMockEntityManager();

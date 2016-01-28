@@ -48,7 +48,6 @@ create table dbo.T_LOCATIONS (
 	address3 varchar(255),
 	address4 varchar(255),
 	address5 varchar(255),
-	address6 varchar(255),
 	city varchar(255),
 	country varchar(255),
 	state varchar(255),

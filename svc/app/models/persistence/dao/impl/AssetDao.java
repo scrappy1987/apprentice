@@ -1,18 +1,23 @@
 package models.persistence.dao.impl;
 
-import models.persistence.dao.play.EntityManagerProvider;
 import models.persistence.dao.GenericDao;
+import models.persistence.dao.play.EntityManagerProvider;
 import models.persistence.entities.Asset;
+import models.persistence.entities.Contact;
 
 import javax.inject.Inject;
+import java.util.List;
 
 public class AssetDao extends GenericDao<Asset>
 {
     @Inject
-    public AssetDao(EntityManagerProvider emp)
+    public AssetDao(EntityManagerProvider entityManagerProvider)
     {
-        super(emp);
+        super(entityManagerProvider);
     }
 
-    //Add methods for any Asset specific database accesses here.
+    public List<Asset> listForContact(Contact contact)
+    {
+        return getEntityManager().createNamedQuery("SELECT a FROM Asset a WHERE a.contact = " + contact).getResultList();
+    }
 }

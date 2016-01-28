@@ -23,7 +23,6 @@ public class BrandDaoTest
         daoTestBuilder.createTestObjects();
         brandDao = new BrandDao(daoTestBuilder.getMockEntityManagerProvider());
 
-        daoTestBuilder.setStatus();
         brand = daoTestBuilder.getBrand();
 
         mockEntityManager = daoTestBuilder.getMockEntityManager();

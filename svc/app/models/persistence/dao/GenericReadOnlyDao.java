@@ -1,6 +1,7 @@
 package models.persistence.dao;
 
 import models.persistence.dao.play.EntityManagerProvider;
+import models.persistence.entities.Contact;
 import play.Logger;
 
 import javax.persistence.EntityManager;
@@ -36,7 +37,7 @@ public abstract class GenericReadOnlyDao<T>
     {
         logger.info("Getting List of " + type.getSimpleName());
 
-        String query = "Select e from " + type.getSimpleName() + " e";
+        String  query = "Select e from " + type.getSimpleName() + " e";
 
         logger.info("List query " + query);
 
