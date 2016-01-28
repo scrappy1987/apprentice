@@ -1,27 +1,27 @@
 "use strict";
-(function () {
+     (function () {
 
-    angular.module("app")
-        .controller("dashboardController",
-        ["$log", DashboardCtrl]);
+         angular.module("app")
+             .controller("dashboardController",
+             ["$log", DashboardCtrl]);
 
-    function DashboardCtrl ($log) {
-        var vm = this;
-        $log.debug("Instantiated dashboardController controller");
+         function DashboardCtrl ($log) {
+             var vm = this;
+             $log.debug("Instantiated dashboardController controller");
 
 
-        vm.addAsset = function () {
+             vm.addAsset = function () {
 
-            var popupDialog = BootstrapDialog.show({
-                message: 'This Button Works!'
-            });
-        }
+                 var popupDialog = BootstrapDialog.show({
+                     message: 'This Button Works!'
+                 });
+             }
 
-         vm.manageAsset = function () {
+              vm.manageAsset = function () {
 
-            var popupDialog = BootstrapDialog.show({
-                message: 'This Button Works Too!'
-            });
-        }
-    }
-}());
+                 var popupDialog = BootstrapDialog.show({
+                     message: 'This Button Works Too!'
+                 });
+             }
+         }
+     }());
