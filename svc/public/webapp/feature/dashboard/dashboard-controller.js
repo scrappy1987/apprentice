@@ -19,10 +19,10 @@
 
          vm.manageAsset = function () {
 
-                    var popupDialog = BootstrapDialog.show({
-                        message: 'This Button Works Too!'
-                    });
-                }
+            var popupDialog = BootstrapDialog.show({
+                message: 'This Button Works Too!'
+            });
+        }
 
 
 
