@@ -17,7 +17,7 @@
                 <p ng-message="required">Password is Required</p>
             </div>
 
-            <button id="login" class="login-submit" data-ng-click="loginCtrl.login()">Login</button>
+            <button id="login" class="login-submit" ng-disabled="loginForm.$invalid" data-ng-click="loginCtrl.login()">Login</button>
         </form>
 
     </div>

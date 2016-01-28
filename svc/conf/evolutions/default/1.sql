@@ -4,6 +4,13 @@
 
 create schema dbo;
 
+
+create table dbo.T_USER(
+	id tinyint identity(1,1) NOT NULL,
+	name char(20) NOT NULL,
+	PRIMARY KEY (id)
+);
+
 create table dbo.T_REF_DATA(
 	id tinyint identity(1,1) NOT NULL,
 	value char(6) NOT NULL,
