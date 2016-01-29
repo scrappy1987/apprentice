@@ -8,7 +8,7 @@
         $log.debug("Instantiated contactDal");
 
         this.getContact = function () {
-            return service-caller.http.GET("contact");
+            return serviceCaller.http.GET("contact");
         };
     }
 }());

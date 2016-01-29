@@ -8,7 +8,7 @@
         $log.debug("Instantiated functionalOrganisationDal");
 
         this.getFunctionalOrganisation = function () {
-            return service-caller.http.GET("functionalOrganisation");
+            return serviceCaller.http.GET("functionalOrganisation");
         };
     }
 }());

@@ -8,19 +8,19 @@
         $log.debug("Instantiated assetDal");
 
         this.getAsset = function () {
-            return service-caller.http.GET("asset");
+            return serviceCaller.http.GET("asset");
         };
 
         this.saveAsset = function (assetToSave) {
-            return service-caller.http.POST("asset", assetToSave);
+            return serviceCaller.http.POST("asset", assetToSave);
         };
 
         this.updateAsset = function (assetToUpdate) {
-            return service-caller.http.PUT("asset/", assetToUpdate);
+            return serviceCaller.http.PUT("asset/", assetToUpdate);
         };
 
         this.deleteAsset = function (assetToDelete) {
-            return service-caller.http.DELETE("asset/", assetToDelete);
+            return serviceCaller.http.DELETE("asset/", assetToDelete);
         };
     }
 }());

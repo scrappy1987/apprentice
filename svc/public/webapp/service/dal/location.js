@@ -8,7 +8,7 @@
         $log.debug("Instantiated assetDal");
 
         this.getLocation = function () {
-            return service-caller.http.GET("location");
+            return serviceCaller.http.GET("location");
         };
     }
 }());
