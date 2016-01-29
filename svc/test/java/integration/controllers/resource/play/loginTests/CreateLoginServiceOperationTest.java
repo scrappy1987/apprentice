@@ -31,7 +31,7 @@ public class CreateLoginServiceOperationTest {
     public void testReturnTrue()
     {
         responseNode.put("authenticated", "true");
-        jsonNode.put("user1","pass1");
+        jsonNode.put("user1@atos.net","password1");
         assertEquals(responseNode,loginOp.doExecute(jsonNode));
     }
 

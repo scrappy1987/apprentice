@@ -21,7 +21,6 @@ public class LoginServiceTest {
 
     private LoginService logServ;
     private LoginServiceTestBuilder logServTestBuild;
-    private CreateLoginServiceOperation createLoginServiceOperation;
     private JSONHelper jsonHelper;
 
     @Before
@@ -31,7 +30,7 @@ public class LoginServiceTest {
         logServTestBuild = new LoginServiceTestBuilder();
         logServTestBuild.LoginTestServiceObject();
         logServ = new LoginService(new UnavailableServiceOperation(new JSONHelper()),
-                logServTestBuild.getMockCreateLoginServiceOperation(),
+                new CreateLoginServiceOperation(),
                 new JSONHelper());
     }
 
@@ -39,8 +38,10 @@ public class LoginServiceTest {
     public void loginServiceCreateTest()
     {
         JsonNode jsonNode = logServ.create(logServTestBuild.getMockJsonNode());
-        JsonNode testJsonNode = jsonHelper.toJson("{\"message\":\"Service Operation is unavailable\"}");
-        assertEquals(testJsonNode, jsonNode);
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode jsonTestNode = mapper.createObjectNode();
+        jsonTestNode.put("authenticated", "false");
+        assertEquals(jsonTestNode, jsonNode);
     }
 
     @Test

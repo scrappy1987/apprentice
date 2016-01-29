@@ -27,6 +27,12 @@ public class LoginService extends Service{
         this.jsonHelper = jsonHelper;
     }
 
+    @Override public JsonNode create(JsonNode jsonNode)
+    {
+        System.out.println(jsonNode);
+        return loginServiceOperation.doExecute(jsonNode);
+    }
+
     @Override
     public JsonNode list()
     {
