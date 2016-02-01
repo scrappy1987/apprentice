@@ -23,7 +23,7 @@
 
         vm.navigateToManageAsset = function () {
             $state.go("home.assetmanage");
-        };
+        }
 
         vm.logout = function () {
             $state.go("login");
