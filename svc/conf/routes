@@ -7,6 +7,7 @@
 
 # DYNAMIC CONTENT
 
+POST        /login        controllers.resource.play.LoginEndpoint.login()
 
 #STATIC CONTENT
 
