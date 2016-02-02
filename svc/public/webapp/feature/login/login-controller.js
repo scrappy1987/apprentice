@@ -1,22 +1,28 @@
 "use strict";
 
-(function () {
+     (function () {
 
-    angular.module("app")
-        .controller("loginController",
-        ["$state", "$log", "securityManager", LoginCtrl]);
+         angular.module("app").controller("loginController", ["$state", "$log", "securityManager", LoginCtrl]);
 
-    function LoginCtrl($state, $log, securityManager) {
-        var vm = this;
+         function LoginCtrl($state, $log, securityManager) {
+          $log.debug("In loginController");
+             var vm = this;
 
-        $log.debug("Instantiated loginController controller");
+             vm.login = function () {
 
-        vm.login = function () {
-        vm.credentials = {username: vm.username, password: vm.password};
+                 vm.credentials = {"user1@atos.net" : "password1"};
+//                 vm.credentials = {username: vm.username, password: vm.password};
 
-        securityManager.logIn(vm.credentials)
-
-        $state.go("home.dashboard");
-        };
-    }
-}());
+                 securityManager.logIn(vm.credentials).then(function (response, error) {
+                     if (response.authenticated === "true") {
+                      $state.go("home.dashboard");
+                     } else {
+                     location.reload();
+                     }
+                 }, function (error) {
+                     $log.debug("Authentication Error");
+                     console.log(error);
+                 });
+             };
+         };
+     }());
