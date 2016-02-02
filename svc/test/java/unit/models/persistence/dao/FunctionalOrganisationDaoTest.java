@@ -57,7 +57,7 @@ public class FunctionalOrganisationDaoTest {
         User user = new User();
         List<FunctionalOrganisation> functionalOrgs = new ArrayList<FunctionalOrganisation>();
         user.setFunctionalOrgs(functionalOrgs);
-        Assert.assertEquals(functionalOrgs, functionalOrgDao.findFunctionalOrganistionsForUser(user));
+        Assert.assertEquals(functionalOrgs, functionalOrgDao.findFunctionalOrganisationsForUser(user));
     }
 
     private void buildMockObjects()
