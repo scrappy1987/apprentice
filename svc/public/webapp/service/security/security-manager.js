@@ -2,34 +2,37 @@
 
 (function () {
 
-    angular.module("app").service("securityManager", ["$log", "serviceCaller", SecurityManager]);
+    angular.module("app").service("securityManager", ["$q", "$log", "serviceCaller", SecurityManager]);
 
-    function SecurityManager($log, serviceCaller) {
+    function SecurityManager($q, $log, serviceCaller) {
         $log.debug("In SecurityManager");
 
-         this.setUserCredentials = function (credentials) {
-            this.userCredentials = credentials;
+        var loginResponse;
+
+         this.setUserCredentials = function (userCredentials) {
+            this.userCredentials = userCredentials;
          };
 
          this.getUserCredentials = function () {
             return userCredentials;
          };
 
-         this.userAuthentication = function (userCredentials) {
-             serviceCaller.http.POST("/app/login", userCredentials).then(function (authenticate) {
-                console.log("POST Request Success");
-             }, function (error) {
-                console.log("POST Request Failed");
-             });
-         };
+         this.logIn = function (userCredentials) {
+             $log.debug("In logIn Function");
+             this.setUserCredentials(userCredentials);
+             var deferred = $q.defer();
+             console.log(userCredentials);
 
-         this.logIn = function(credentials){
-            $log.debug("In logIn Function");
-            var userCredentials;
-
-            this.setUserCredentials(credentials);
-            console.log(credentials.username);
-            this.userAuthentication(userCredentials);
+            try {
+                 serviceCaller.http.POST("/login", userCredentials).then(function (loginResponse, error) {
+                    deferred.resolve(loginResponse);
+                 }, function (error) {
+                    console.log(error);
+                 });
+             } catch (e) {
+                deferred.reject(e);
+             }
+             return deferred.promise;
          };
     }
 }());
