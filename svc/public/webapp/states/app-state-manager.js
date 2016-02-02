@@ -42,6 +42,13 @@
                              templateUrl: "feature/asset/manage/manage-asset-index.html"
                           }
                       }
-          })
+          }).state("home.assetadd", {
+                                  url: "/asset/add",
+                                  views: {
+                                      "home-content": {
+                                         templateUrl: "feature/asset/add/add-asset-index.html"
+                                      }
+                                  }
+                      })
         });
 }());
