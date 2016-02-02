@@ -26,14 +26,16 @@ public abstract class ResourceEndpoint<T extends Service> extends Controller
     @Transactional public Result list()
     {
         JsonNode jsonResponse = service.list();
-
         return ok(jsonResponse);
     }
 
     // GET {path}/resource/:id
     @Transactional public Result find(Long id)
     {
+        logger.info("find(id): " + id);
         JsonNode jsonResponse = service.find(getIdAsJson(id));
+
+        logger.info("json response: " + jsonResponse);
 
         return ok(jsonResponse);
     }

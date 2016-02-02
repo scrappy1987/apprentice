@@ -2,8 +2,8 @@ package models.persistence.entities;
 
 import javax.persistence.*;
 
-@Table(name = "dbo.T_CATEGORIES")
 @Entity
+@Table(name = "dbo.T_CATEGORIES")
 public class Category
 {
     @Id
@@ -13,9 +13,11 @@ public class Category
     @Column(name = "category", nullable = false)
     private String category;
 
-    @Column(name = "type", nullable = false)
     @ManyToOne
+    @JoinColumn(name = "type", nullable = false)
     private CategoryType categoryType;
+
+    public Category() {}
 
     public int getId() {
         return id;

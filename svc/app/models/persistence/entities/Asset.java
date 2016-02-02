@@ -2,6 +2,7 @@ package models.persistence.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import common.constants.WsdsConstants;
 
 @Table(name = "dbo.T_ASSETS")
 @Entity
@@ -11,69 +12,80 @@ public class Asset
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "aoSDMLastTicketNumber", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_AO_SDM_LAST_TICKET_NUMBER_PROPERTY, nullable = false)
     private String aoSDMLastTicketNumber;
 
-    @Column(name = "location", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_AO_FO_AO_NAME_PROPERTY, nullable = false)
+    private int aoFOAoName;
+
     @ManyToOne
+    @JoinColumn(name = WsdsConstants.ASSET_JSON_LOCATION_PROPERTY)
     private Location location;
 
-    @Column(name = "contact", nullable = false)
     @ManyToOne
+    @JoinColumn(name = WsdsConstants.ASSET_JSON_CONTACT_PROPERTY)
     private Contact contact;
 
-    @Column(name = "assetSerialNo", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_ASSET_SERIAL_NO_PROPERTY, nullable = false)
     private String assetSerialNo;
 
-    @Column(name = "assetLabel", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_ASSET_LABEL_PROPERTY, nullable = false)
     private String assetLabel;
 
-    @Column(name = "assetAoCiName", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_ASSET_AO_CI_NAME_PROPERTY, nullable = false)
     private String assetAoCiName;
 
-    @Column(name = "propertyType")
+    @OneToOne
+    @JoinColumn(name = WsdsConstants.ASSET_JSON_PROPERTY_TYPE_PROPERTY)
     private PropertyType propertyType;
 
-    @Column(name = "status", nullable = false)
+    @OneToOne
+    @JoinColumn(name = WsdsConstants.ASSET_JSON_STATUS_PROPERTY)
     private Status status;
 
-    @Column(name = "assetSeverityName", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_ASSET_SEVERITY_NAME_PROPERTY, nullable = false)
     private String assetSeverityName;
 
-    @Column(name = "assetAoServiceScope", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_ASSET_AO_SERVICE_SCOPE_PROPERTY, nullable = false)
     private String assetAoServiceScope;
 
-    @Column(name = "model", nullable = false)
     @ManyToOne
+    @JoinColumn(name = WsdsConstants.ASSET_JSON_MODEL_PROPERTY)
     private Model model;
 
-    @Column(name = "operatingSystem", nullable = false)
+    @OneToOne
+    @JoinColumn(name = WsdsConstants.ASSET_JSON_BRAND_PROPERTY)
+    private Brand brand;
+
+    @OneToOne
+    @JoinColumn(name = WsdsConstants.ASSET_JSON_OPERATING_SYSTEM_PROPERTY)
     private OperatingSystem operatingSystem;
 
-    @Column(name = "computerTcpIpHostName", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_COMPUTER_TCP_IP_HOST_NAME_PROPERTY, nullable = false)
     private String computerTcpIpHostName;
 
-    @Column(name = "aoATFExternalTool", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_AO_ATF_EXTERNAL_TOOL_PROPERTY, nullable = false)
     private String aoATFExternalTool;
 
-    @Column(name = "aoDelete", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_AO_DELETE_PROPERTY, nullable = false)
     private String aoDelete;
 
-    @Column(name = "seAssignment", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_SE_ASSIGNMENT_PROPERTY, nullable = false)
     private String seAssignment;
 
-    @Column(name = "objectAction", nullable = false)
+    @Column(name = WsdsConstants.ASSET_JSON_OBJECT_ACTION_PROPERTY, nullable = false)
     private String objectAction;
 
-    @Column(name = "objectType", nullable = false)
-    @ManyToOne
+    @Column(name = WsdsConstants.ASSET_JSON_OBJECT_TYPE_PROPERTY, nullable = false)
     private String objectType;
 
-    @Column(name = "aodAssignment", nullable = false)
-    private Date aodAssignment;
+    @Column(name = WsdsConstants.ASSET_JSON_AOD_ASSIGNMENT_PROPERTY, nullable = false)
+    private String aodAssignment;
 
-    @Column(name = "dAssignment", nullable = false)
-    private Date dAssignment;
+    @Column(name = WsdsConstants.ASSET_JSON_D_ASSIGNMENT_PROPERTY, nullable = false)
+    private String dAssignment;
+
+    public Asset() {}
 
     public int getId() {
         return id;
@@ -121,6 +133,22 @@ public class Asset
 
     public void setAssetLabel(String assetLabel) {
         this.assetLabel = assetLabel;
+    }
+
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
+    public int getAoFOAoName() {
+        return aoFOAoName;
+    }
+
+    public void setAoFOAoName(int aoFOAoName) {
+        this.aoFOAoName = aoFOAoName;
     }
 
     public String getAssetAoCiName() {
@@ -227,19 +255,19 @@ public class Asset
         this.objectType = objectType;
     }
 
-    public Date getAodAssignment() {
+    public String getAodAssignment() {
         return aodAssignment;
     }
 
-    public void setAodAssignment(Date aodAssignment) {
+    public void setAodAssignment(String aodAssignment) {
         this.aodAssignment = aodAssignment;
     }
 
-    public Date getdAssignment() {
+    public String getdAssignment() {
         return dAssignment;
     }
 
-    public void setdAssignment(Date dAssignment) {
+    public void setdAssignment(String dAssignment) {
         this.dAssignment = dAssignment;
     }
 }

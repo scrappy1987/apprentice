@@ -2,8 +2,10 @@ package models.persistence.entities;
 
 import javax.persistence.*;
 
-@Table(name = "dbo.T_REF_DATA")
 @Entity
+@Table(name = "dbo.T_REF_DATA")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="refDataType")
 public class ValueObject
 {
     @Id
@@ -13,11 +15,10 @@ public class ValueObject
     @Column(name = "value", nullable = false)
     private String value;
 
-    @Column(name = "refDataType", nullable = false)
-    private String refDataType;
-
     @Column(name = "hpamId", nullable = false)
     private int hpamId;
+
+    public ValueObject() {}
 
     public int getId()
     {
@@ -37,16 +38,6 @@ public class ValueObject
     public void setValue(String value)
     {
         this.value = value;
-    }
-
-    public String getRefDataType()
-    {
-        return refDataType;
-    }
-
-    public void setRefDataType(String refDataType)
-    {
-        this.refDataType = refDataType;
     }
 
     public int getHpamId()

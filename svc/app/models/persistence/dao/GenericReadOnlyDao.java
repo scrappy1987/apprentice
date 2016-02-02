@@ -29,6 +29,7 @@ public abstract class GenericReadOnlyDao<T>
 
     public final T find(Object id)
     {
+        logger.info("In GenericReadOnlyDao -> find(id) method: " + id + " Type: " +  type);
         return (T) getEntityManager().find(type, id);
     }
 

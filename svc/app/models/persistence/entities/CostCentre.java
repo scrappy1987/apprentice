@@ -3,15 +3,15 @@ package models.persistence.entities;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-@Table(name = "dbo.T_COST_CENTRES")
 @Entity
+@Table(name = "dbo.T_COST_CENTRES")
 public class CostCentre
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "functionalOrg", nullable = false)
+    @JoinColumn(name = "functionalOrg")
     @OneToOne
     private FunctionalOrganisation functionalOrg;
 
@@ -20,6 +20,11 @@ public class CostCentre
 
     @Column(name = "title", nullable = false)
     private String title;
+
+    public CostCentre()
+    {
+
+    }
 
     public int getId() {
         return id;

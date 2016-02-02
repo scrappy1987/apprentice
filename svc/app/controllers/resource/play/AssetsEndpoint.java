@@ -12,9 +12,9 @@ public class AssetsEndpoint extends ResourceEndpoint<AssetService>
 {
     private static final Logger.ALogger logger = Logger.of(AssetsEndpoint.class);
 
-    @Inject public AssetsEndpoint(AssetService projectService)
+    @Inject public AssetsEndpoint(AssetService assetService)
     {
-        super(projectService);
+        super(assetService);
     }
 
 
@@ -22,7 +22,6 @@ public class AssetsEndpoint extends ResourceEndpoint<AssetService>
     @Transactional public Result list(Long parentId)
     {
         JsonNode jsonResponse = getService().listForContact(getIdAsJson(parentId));
-
         return ok(jsonResponse);
     }
 }

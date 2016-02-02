@@ -3,11 +3,8 @@ package models.persistence.entities;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by a613794 on 28/01/2016.
- */
-@Table(name = "dbo.T_USER")
 @Entity
+@Table(name = "dbo.T_USER")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +17,8 @@ public class User {
      @OneToMany
      @JoinColumn(name = "dbo.T_FO")
      private List<FunctionalOrganisation> functionalOrgs;
+
+    public User() {}
 
     public Long getId()
     {

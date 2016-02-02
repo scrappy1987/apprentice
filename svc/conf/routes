@@ -7,6 +7,8 @@
 
 # DYNAMIC CONTENT
 
+POST        /asset          controllers.resource.play.AssetsEndpoint.create
+GET         /asset/:id      controllers.resource.play.AssetsEndpoint.find(id: Long)
 
 #STATIC CONTENT
 

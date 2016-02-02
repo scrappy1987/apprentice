@@ -2,15 +2,16 @@ package models.persistence.entities;
 
 import javax.persistence.*;
 
-@Table(name = "dbo.T_LOCATIONS")
 @Entity
+@Table(name = "dbo.T_LOCATIONS")
 public class Location
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "functionalOrg", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "functionalOrg")
     private FunctionalOrganisation functionalOrg;
 
     @Column(name = "location", nullable = false)
@@ -40,6 +41,9 @@ public class Location
     @Column(name = "address5", nullable = false)
     private String address5;
 
+    @Column(name = "address6", nullable = false)
+    private String address6;
+
     @Column(name = "city", nullable = false)
     private String city;
 
@@ -51,6 +55,8 @@ public class Location
 
     @Column(name = "zip", nullable = false)
     private String zip;
+
+    public Location() {}
 
     public int getId() {
         return id;
@@ -130,6 +136,14 @@ public class Location
 
     public void setAddress4(String address4) {
         this.address4 = address4;
+    }
+
+    public String getAddress6() {
+        return address5;
+    }
+
+    public void setAddress6(String address6) {
+        this.address6 = address6;
     }
 
     public String getAddress5() {
