@@ -6,21 +6,19 @@ package net.atos.wsds.exception;
 public enum WSDSBusinessErrorCodes implements WSDSErrorCodes {
 
 
-    CONTACT_NOT_FOUND(9000) {
-        @Override
-        public int getErrorCode() {
-            return 9000;
-        }
-    },
-    LOCATION_NOT_FOUND(9001) {
-        @Override
-        public int getErrorCode() {
-            return 9001;
-        }
-    };
+    CONTACT_NOT_FOUND(9000), LOCATION_NOT_FOUND(9001);
 
     WSDSBusinessErrorCodes(int errorCode)
     {
+        this.errorCode = errorCode;
+    }
 
+    private final int errorCode;
+
+
+    @Override
+    public int getErrorCode()
+    {
+        return errorCode;
     }
 }
