@@ -2,15 +2,16 @@ package models.persistence.entities;
 
 import javax.persistence.*;
 
-@Table(name = "dbo.T_CONTACTS")
 @Entity
+@Table(name = "dbo.T_CONTACTS")
 public class Contact
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "functionalOrg", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "functionalOrg")
     private FunctionalOrganisation functionalOrg;
 
     @Column(name = "employeeNo", nullable = false)
@@ -36,6 +37,8 @@ public class Contact
 
     @Column(name = "email", nullable = false)
     private String email;
+
+    public Contact() {}
 
     public int getId() {
         return id;

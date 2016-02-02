@@ -2,27 +2,29 @@ package models.persistence.entities;
 
 import javax.persistence.*;
 
-@Table(name = "dbo.T_MODELS")
 @Entity
+@Table(name = "dbo.T_MODELS")
 public class Model
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "brand", nullable = false)
     @ManyToOne
-    private String brand;
+    @JoinColumn(name = "brand")
+    private Brand brand;
 
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "category", nullable = false)
     @ManyToOne
+    @JoinColumn(name = "category")
     private Category category;
 
     @Column(name = "barCode", nullable = false)
     private String barCode;
+
+    public Model() {}
 
     public int getId() {
         return id;
@@ -32,11 +34,11 @@ public class Model
         this.id = id;
     }
 
-    public String getBrand() {
+    public Brand getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Brand brand) {
         this.brand = brand;
     }
 

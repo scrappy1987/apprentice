@@ -3,11 +3,8 @@ package models.persistence.entities;
 import javax.persistence.*;
 import java.util.List;
 
-/**
- * Created by a613794 on 28/01/2016.
- */
-@Table(name = "dbo.T_FO")
 @Entity
+@Table(name = "dbo.T_FO")
 public class FunctionalOrganisation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,9 +20,7 @@ public class FunctionalOrganisation {
     @Column(name = "cmdbPlatform")
     private String cmdbPlatform;
 
-    @OneToMany
-    @JoinColumn(name = "dbo.T_BUSINESS_UNITS")
-    private List<BusinessUnit> businessUnits;
+    public FunctionalOrganisation() {}
 
     public int getId() {
         return id;
@@ -57,13 +52,5 @@ public class FunctionalOrganisation {
 
     public void setCmdbPlatform(String cmdbPlatform) {
         this.cmdbPlatform = cmdbPlatform;
-    }
-
-    public List<BusinessUnit> getBusinessUnits() {
-        return businessUnits;
-    }
-
-    public void setBusinessUnits(List<BusinessUnit> businessUnits) {
-        this.businessUnits = businessUnits;
     }
 }
