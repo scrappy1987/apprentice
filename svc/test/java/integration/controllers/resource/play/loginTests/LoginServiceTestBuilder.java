@@ -13,7 +13,6 @@ import org.mockito.Mockito;
 public class LoginServiceTestBuilder {
 
     private JsonNode mockJsonNode;
-    //private UnavailableServiceOperation mockUnavailableServiceOperation;
     private CreateLoginServiceOperation mockCreateLoginServiceOperation;
 
     public JSONHelper getJsonHelper() {
@@ -26,11 +25,10 @@ public class LoginServiceTestBuilder {
     void LoginTestServiceObject()
     {
         mockJsonNode = Mockito.mock(JsonNode.class);
-       // mockUnavailableServiceOperation = Mockito.mock(UnavailableServiceOperation.class);
         mockCreateLoginServiceOperation = Mockito.mock(CreateLoginServiceOperation.class);
         jsonHelper = Mockito.mock(JSONHelper.class);
+
         Mockito.when(jsonHelper.toJson(mockJsonNode)).thenReturn(mockJsonNode);
-       // Mockito.when(mockUnavailableServiceOperation.execute(mockJsonNode)).thenReturn(mockJsonNode);
         Mockito.when(mockCreateLoginServiceOperation.execute(mockJsonNode)).thenReturn(mockJsonNode);
     }
 
@@ -39,10 +37,6 @@ public class LoginServiceTestBuilder {
         return mockCreateLoginServiceOperation;
     }
 
-    //public UnavailableServiceOperation getMockUnavailableServiceOperation()
-    //{
-       // return mockUnavailableServiceOperation;
-    //}
 
     public JsonNode getMockJsonNode()
     {
