@@ -1,6 +1,5 @@
 package net.atos.wsds.exception.play;
 
-
 import net.atos.wsds.exception.WSDSBusinessException;
 import net.atos.wsds.exception.WSDSSystemException;
 import play.Configuration;
