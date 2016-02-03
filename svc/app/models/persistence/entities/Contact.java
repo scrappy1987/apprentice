@@ -10,9 +10,9 @@ public class Contact
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "functionalOrg")
-    private FunctionalOrganisation functionalOrg;
+    @OneToOne
+    @JoinColumn(name = "location")
+    private Location location;
 
     @Column(name = "employeeNo", nullable = false)
     private String employeeNo;
@@ -48,12 +48,13 @@ public class Contact
         this.id = id;
     }
 
-    public FunctionalOrganisation getFunctionalOrg() {
-        return functionalOrg;
+    public Location getLocation() {
+        return location;
     }
 
-    public void setFunctionalOrg(FunctionalOrganisation functionalOrg) {
-        this.functionalOrg = functionalOrg;
+    public void setFunctionalOrg(Location location)
+    {
+        this.location = location;
     }
 
     public String getEmployeeNo() {

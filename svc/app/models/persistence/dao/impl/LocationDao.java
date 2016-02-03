@@ -20,4 +20,3 @@ public class LocationDao extends GenericDao<Location> {
         return getEntityManager().createQuery("SELECT l FROM Location l WHERE l.functionalOrg = :functionalOrganisation").setParameter("functionalOrganisation", functionalOrganisation).getResultList();
     }
 }
-// return getEntityManager().createQuery("SELECT a FROM Asset a WHERE a.contact = :contact").setParameter("contact", contact).getResultList();

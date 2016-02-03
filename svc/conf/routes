@@ -10,7 +10,7 @@
 POST        /asset          controllers.resource.play.AssetsEndpoint.create
 GET         /asset/:id      controllers.resource.play.AssetsEndpoint.find(id: Long)
 POST        /login          controllers.resource.play.LoginEndpoint.login()
-GET         /location/:uid  controllers.resource.play.LocationEndpoint.list(uid: Long)
+GET         /contact/:uid  controllers.resource.play.ContactEndpoint.list(uid: Long)
 
 #STATIC CONTENT
 

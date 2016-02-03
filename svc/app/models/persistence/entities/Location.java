@@ -1,6 +1,7 @@
 package models.persistence.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "dbo.T_LOCATIONS")
@@ -185,4 +186,6 @@ public class Location
     public void setZip(String zip) {
         this.zip = zip;
     }
+
+
 }
