@@ -23,9 +23,9 @@ public class FunctionalOrganisationEndpoint extends ResourceEndpoint<FunctionalO
         super(functionalOrganisationService);
     }
 
-    @Transactional public Result list(Long userId)
+    @Transactional
+    public Result list(Long userId)
     {
-        JSONHelper jsonHelper = new JSONHelper();
         JsonNode jsonResponse = getService().listForUser(new JSONHelper().toJson(userId));
         return ok(jsonResponse);
     }
