@@ -20,6 +20,5 @@ public enum  WSDSSystemErrorCodes implements WSDSErrorCodes {
         return errorCode;
     }
 
-
     }
 
