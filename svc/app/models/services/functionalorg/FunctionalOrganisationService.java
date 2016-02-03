@@ -34,7 +34,6 @@ public class FunctionalOrganisationService extends Service {
 
     @Override public JsonNode list()
     {
-
         JsonNode jsonResponse = listFunctionalOrganisationServiceOperation.doExecute(jsonHelper.toJson(""));
         return jsonResponse;
     }

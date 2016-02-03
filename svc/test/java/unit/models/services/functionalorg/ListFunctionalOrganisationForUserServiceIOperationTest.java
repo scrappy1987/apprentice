@@ -1,4 +1,4 @@
-package models.persistence.service.functionalorg;
+package models.services.functionalorg;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import common.util.json.play.JSONHelper;
