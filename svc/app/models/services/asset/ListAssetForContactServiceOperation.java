@@ -3,29 +3,41 @@ package models.services.asset;
 import com.fasterxml.jackson.databind.JsonNode;
 import common.util.json.play.JSONHelper;
 import models.persistence.dao.impl.AssetDao;
+import models.persistence.dao.impl.ContactDao;
+import models.persistence.entities.Asset;
+import models.persistence.entities.Contact;
 import models.services.ServiceOperation;
 import play.Logger;
 
 import javax.inject.Inject;
+import java.util.List;
 
 public class ListAssetForContactServiceOperation extends ServiceOperation
 {
     private static final Logger.ALogger logger = Logger.of(ListAssetForContactServiceOperation.class);
 
-    private AssetDao dao;
+    private AssetDao assetDao;
+
+    private ContactDao contactDao;
 
     private JSONHelper jsonHelper;
 
     @Inject
-    public ListAssetForContactServiceOperation(AssetDao dao, JSONHelper jsonHelper)
+    public ListAssetForContactServiceOperation(AssetDao assetDao, ContactDao contactDao, JSONHelper jsonHelper)
     {
-        this.dao = dao;
-
+        this.assetDao = assetDao;
+        this.contactDao = contactDao;
         this.jsonHelper = jsonHelper;
     }
 
     @Override protected JsonNode doExecute(JsonNode jsonRequest)
     {
-        return null;
+        Contact contact = contactDao.find(jsonRequest.path("id").asInt());
+        List<Asset> assets = assetDao.listForContact(contact);
+
+
+        logger.info("Assets (list): " + jsonHelper.toJson(assets));
+
+        return jsonHelper.toJson(assets);
     }
 }

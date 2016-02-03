@@ -26,7 +26,6 @@ public class ListAssetServiceOperation extends ServiceOperation
 
     @Override protected JsonNode doExecute(JsonNode jsonRequest)
     {
-        Logger.info(jsonRequest + " ************************");
         return jsonHelper.toJson(dao.list());
     }
 }
