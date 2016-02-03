@@ -4,8 +4,10 @@ import models.persistence.dao.play.EntityManagerProvider;
 import models.persistence.dao.GenericDao;
 import models.persistence.entities.Asset;
 import models.persistence.entities.Contact;
+import play.Logger;
 
 import javax.inject.Inject;
+import javax.persistence.NamedQuery;
 import java.util.List;
 
 public class AssetDao extends GenericDao<Asset>
@@ -16,8 +18,8 @@ public class AssetDao extends GenericDao<Asset>
         super(emp);
     }
 
-     public List<Asset> listForContact(Contact contact)
-     {
-         return getEntityManager().createNamedQuery("SELECT a FROM Asset a WHERE a.contact = " + contact).getResultList();
-     }
+    public List<Asset> listForContact(Contact contact)
+    {
+        return getEntityManager().createQuery("SELECT a FROM Asset a WHERE a.contact = :contact").setParameter("contact", contact).getResultList();
+    }
 }
