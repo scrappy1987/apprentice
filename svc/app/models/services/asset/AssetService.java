@@ -77,6 +77,6 @@ public class AssetService extends Service
 
     public JsonNode listForContact(JsonNode contactId)
     {
-        return listAssetServiceOperation.execute(contactId);
+        return listAssetForContactServiceOperation.execute(contactId);
     }
 }
