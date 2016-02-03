@@ -8,9 +8,10 @@
 # DYNAMIC CONTENT
 
 POST        /asset                  controllers.resource.play.AssetsEndpoint.create
-
 GET         /asset/:id              controllers.resource.play.AssetsEndpoint.find(id: Long)
 GET         /contact/:id/asset      controllers.resource.play.AssetsEndpoint.list(id: Long)
+
+GET         /location/:uid          controllers.resource.play.LocationEndpoint.list(uid: Long)
 
 POST        /login                  controllers.resource.play.LoginEndpoint.login()
 

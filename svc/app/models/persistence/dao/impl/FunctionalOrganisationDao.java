@@ -18,7 +18,7 @@ public class FunctionalOrganisationDao extends GenericDao<FunctionalOrganisation
         super(emp);
     }
 
-    public List<FunctionalOrganisation> findFunctionalOrganistionsForUser(User user)
+    public List<FunctionalOrganisation> findFunctionalOrganisationsForUser(User user)
     {
         return user.getFunctionalOrgs();
     }
