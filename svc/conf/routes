@@ -7,18 +7,18 @@
 
 # DYNAMIC CONTENT
 
-POST        /asset                  controllers.resource.play.AssetsEndpoint.create
-GET         /asset/:id              controllers.resource.play.AssetsEndpoint.find(id: Long)
+POST        /asset          controllers.resource.play.AssetsEndpoint.create
+GET         /asset/:id      controllers.resource.play.AssetsEndpoint.find(id: Long)
 GET         /contact/:id/asset      controllers.resource.play.AssetsEndpoint.list(id: Long)
 
-GET         /location/:uid          controllers.resource.play.LocationEndpoint.list(uid: Long)
+POST        /login        controllers.resource.play.LoginEndpoint.login()
 
-POST        /login                  controllers.resource.play.LoginEndpoint.login()
+GET         /location/:uid          controllers.resource.play.LocationEndpoint.list(uid: Long)
 
 #STATIC CONTENT
 
 # Home page
-GET         /                       controllers.Assets.at(path="/public/webapp", file="index.html")
+GET         /               controllers.Assets.at(path="/public/webapp", file="index.html")
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /*file                  controllers.Assets.versioned(path="/public/webapp", file: Asset)
+GET         /*file          controllers.Assets.versioned(path="/public/webapp", file: Asset)
