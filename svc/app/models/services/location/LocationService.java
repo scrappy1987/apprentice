@@ -16,7 +16,6 @@ public class LocationService extends Service {
     private static final Logger.ALogger logger = Logger.of(LocationService.class);
 
     private ListLocationForFunctionalOrgServiceOperation listLocationForFunctionalOrgServiceOperation;
-    private UnavailableServiceOperation unavailableServiceOperation;
     private JSONHelper jsonHelper;
 
     @Inject
@@ -26,7 +25,6 @@ public class LocationService extends Service {
     {
         super(unavailableServiceOperation);
         this.listLocationForFunctionalOrgServiceOperation = listLocationForFunctionalOrgServiceOperation;
-        this.unavailableServiceOperation = unavailableServiceOperation;
         this.jsonHelper = jsonHelper;
     }
 
