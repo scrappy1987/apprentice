@@ -82,7 +82,7 @@ create table dbo.T_BUSINESS_UNITS (
 
 create table dbo.T_CONTACTS (
   	id int identity(1,1) NOT NULL,
-  	functionalOrg varchar(255),
+  	location int,
   	employeeNo varchar(255),
   	title varchar(10),
   	firstName varchar(50),
