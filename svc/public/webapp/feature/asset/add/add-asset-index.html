@@ -2,20 +2,94 @@
 <h1>Add Assets</h1>
 
 <div data-ng-controller="assetAddController as assetAddCtrl">
- <div class="box left">
-     <h2>Organisation/Site/Person</h2>
-     <h4>Functional Org</h4>
-     <h4>Site/Location</h4>
-     <h4>Contact</h4>
+ <div class="box-container">
+     <div class="box left">
+         <h2>Organisation/Site/Person</h2>
+         <div class="inner-box">
+             <div class="row">
+                 <div class="left">Functional Org</div>
+                 <select name="functionalOrganisation" class="right">
+                     <option value="1">Dropdown</option>
+                 </select>
+             </div>
+             <div class="row">
+                 <div class="left">Site/Location</div>
+                 <select name="location" class="right">
+                     <option value="1">Dropdown</option>
+                 </select>
+             </div>
+             <div class="row">
+                 <div class="left">Contact</div>
+                 <select name="contact" class="right">
+                     <option value="1">Dropdown</option>
+                 </select>
+             </div>
+         </div>
+     </div>
 
+     <div class="box right">
+         <h2>Brand/Model/Os</h2>
+         <div class="inner-box">
+             <div class="row">
+                 <div class="left">Brand</div>
+                 <select name="brandName" class="right">
+                     <option value="1">Dropdown</option>
+                 </select>
+             </div>
+             <div class="row">
+                 <div class="left">Model</div>
+                 <select name="modelName" class="right">
+                     <option value="1">Dropdown</option>
+                 </select>
+             </div>
+             <div class="row">
+                 <div class="left">OS</div>
+                 <select name="operatingSystem" class="right">
+                     <option value="1">Dropdown</option>
+                 </select>
+             </div>
+         </div>
+     </div>
  </div>
- <div class="box right">
-     <h2>Brand/Model/OS</h2>
-     <h4>Brand</h4>
-     <h4>Model</h4>
-     <h4>OS</h4>
 
- </div>
+    <div class="box below">
+        <h2>Asset Details</h2>
+        <div class="inner-box-below">
+                <div class="row">
+                    <div class="left" >Serial Number</div>
+                    <select name="serial" class="right">
+                        <option value="1">Dropdown</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="left">Name</div>
+                    <select name="name" class="right">
+                        <option value="1">Dropdown</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="left">Property Type</div>
+                    <select name="propertyType" class="right">
+                        <option value="1">Dropdown</option>
+                    </select>
+                </div>
+            <div class="row">
+                <div class="left">Host Name</div>
+                <select name="hostName" class="under">
+                    <option>Dropdown</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="left">Last Ticket</div>
+                <select name="ticket" class="under">
+                    <option>Dropdown</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="button-center"><button type="button" class="btn btn-primary">Save</button></div>
 
 
 </div>
