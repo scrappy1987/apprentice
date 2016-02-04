@@ -24,25 +24,19 @@ public class AssetService extends Service
     private JSONHelper jsonHelper;
 
     @Inject public AssetService(UnavailableServiceOperation unavailableServiceOperation,
-                                CreateAssetServiceOperation createProjectServiceOperation,
-                                ListAssetServiceOperation listProjectsServiceOperation,
-                                UpdateAssetServiceOperation updateProjectServiceOperation,
-                                DeleteAssetServiceOperation deleteProjectServiceOperation,
-                                FindAssetServiceOperation findProjectServiceOperation,
+                                CreateAssetServiceOperation createAssetServiceOperation,
+                                ListAssetServiceOperation listAssetServiceOperation,
+                                FindAssetServiceOperation findAssetServiceOperation,
                                 ListAssetForContactServiceOperation listAssetForContactServiceOperation,
                                 JSONHelper jsonHelper)
     {
         super(unavailableServiceOperation);
 
-        this.createAssetServiceOperation = createProjectServiceOperation;
+        this.createAssetServiceOperation = createAssetServiceOperation;
 
-        this.listAssetServiceOperation = listProjectsServiceOperation;
+        this.listAssetServiceOperation = listAssetServiceOperation;
 
-        this.updateAssetServiceOperation = updateProjectServiceOperation;
-
-        this.deleteAssetServiceOperation = deleteProjectServiceOperation;
-
-        this.findAssetServiceOperation = findProjectServiceOperation;
+        this.findAssetServiceOperation = findAssetServiceOperation;
 
         this.listAssetForContactServiceOperation = listAssetForContactServiceOperation;
 

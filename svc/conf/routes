@@ -7,20 +7,23 @@
 
 # DYNAMIC CONTENT
 
-POST        /asset          controllers.resource.play.AssetsEndpoint.create
-GET         /asset/:id      controllers.resource.play.AssetsEndpoint.find(id: Long)
-POST        /login          controllers.resource.play.LoginEndpoint.login()
-GET         /contact/:uid  controllers.resource.play.ContactEndpoint.list(uid: Long)
-GET         /contact/:id/asset      controllers.resource.play.AssetsEndpoint.list(id: Long)
+POST        /login                              controllers.resource.play.LoginEndpoint.login()
 
-POST        /login        controllers.resource.play.LoginEndpoint.login()
+POST        /asset                              controllers.resource.play.AssetsEndpoint.create
+GET         /asset/:assetId                     controllers.resource.play.AssetsEndpoint.find(assetId: Long)
 
-GET         /location/:uid          controllers.resource.play.LocationEndpoint.list(uid: Long)
+
+GET         /contact/:locationId                controllers.resource.play.ContactEndpoint.list(locationId: Long)
+GET         /contact/:contactId/asset           controllers.resource.play.AssetsEndpoint.list(contactId: Long)
+
+GET         /location/:fo                       controllers.resource.play.LocationEndpoint.list(fo: Long)
+
+GET         /functionalorg                      controllers.resource.play.FunctionalOrganisationEndpoint.list()
 
 #STATIC CONTENT
 
 # Home page
-GET         /               controllers.Assets.at(path="/public/webapp", file="index.html")
+GET         /                                   controllers.Assets.at(path="/public/webapp", file="index.html")
 
 # Map static resources from the /public folder to the /assets URL path
-GET         /*file          controllers.Assets.versioned(path="/public/webapp", file: Asset)
+GET         /*file                              controllers.Assets.versioned(path="/public/webapp", file: Asset)
