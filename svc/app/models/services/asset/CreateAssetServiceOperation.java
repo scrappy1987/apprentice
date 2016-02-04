@@ -46,7 +46,7 @@ public class CreateAssetServiceOperation extends ServiceOperation
 
     @Override protected JsonNode doExecute(JsonNode jsonRequest)
     {
-        Location location = locationDao.find(jsonRequest.path("location").path("id").asInt());
+        Location location = locationDao.find(jsonRequest.path("contact").path("location").path("id").asInt());
         Contact contact = contactDao.find(jsonRequest.path("contact").path("id").asInt());
         PropertyType propertyType = propertyTypeDao.find(jsonRequest.path("propertyType").path("id").asInt());
         Status status = statusDao.find(jsonRequest.path("status").path("id").asInt());
@@ -81,7 +81,7 @@ public class CreateAssetServiceOperation extends ServiceOperation
         asset.setLocation(location);
         asset.setModel(model);
         asset.setBrand(brand);
-        asset.setObjectAction(jsonRequest.findPath(WsdsConstants.ASSET_JSON_OBJECT_ACTION_PROPERTY).path("id").textValue());
+        asset.setObjectAction(jsonRequest.findPath(WsdsConstants.ASSET_JSON_OBJECT_ACTION_PROPERTY).textValue());
         asset.setObjectType(jsonRequest.findPath(WsdsConstants.ASSET_JSON_OBJECT_TYPE_PROPERTY).textValue());
         asset.setOperatingSystem(operatingSystem);
         asset.setPropertyType(propertyType);

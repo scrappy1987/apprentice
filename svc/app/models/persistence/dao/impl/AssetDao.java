@@ -1,5 +1,6 @@
 package models.persistence.dao.impl;
 
+import common.util.json.play.JSONHelper;
 import models.persistence.dao.play.EntityManagerProvider;
 import models.persistence.dao.GenericDao;
 import models.persistence.entities.Asset;
@@ -20,6 +21,8 @@ public class AssetDao extends GenericDao<Asset>
 
     public List<Asset> listForContact(Contact contact)
     {
-        return getEntityManager().createQuery("SELECT a FROM Asset a WHERE a.contact = :contact").setParameter("contact", contact).getResultList();
+        return getEntityManager().createQuery("SELECT a FROM Asset a WHERE a.contact = :contact")
+                .setParameter("contact", contact)
+                .getResultList();
     }
 }
