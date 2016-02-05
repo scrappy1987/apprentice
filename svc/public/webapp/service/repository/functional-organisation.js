@@ -13,8 +13,6 @@
         this.getFunctionalOrganisation = function () {
             var deferred = $q.defer();
             functionalOrganisationDal.getFunctionalOrganisation().then(function (results) {
-            console.log("***Repository in success the value of results is***");
-                    console.log(results);
                 functionalOrganisationCache = results;
                 deferred.resolve(results);
             }, function (error) {

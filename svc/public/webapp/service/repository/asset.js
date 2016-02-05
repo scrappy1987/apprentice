@@ -8,14 +8,10 @@
         $log.debug("Instantiated assetRepository");
 
         var assetCache = [];
-        console.log("This is asset cache");
 
         this.getAsset = function (criteria) {
-
             var deferred = $q.defer();
             assetDal.getAsset().then(function (results) {
-            console.log("***Repository in success the value of results is***");
-                    console.log(results);
                 assetCache = results;
                 deferred.resolve(results);
             }, function (error) {
