@@ -3,10 +3,15 @@
     <div class="panel-body">
         <div class="container-fluid">
             <div class="row">
-                <div class="left">Functional Org</div>
-                <select name="functionalOrganisation" class="right">
-                    <option value="1">Functional Organisation</option>
-                </select>
+                <div data-ng-controller="foFormController as foFormCtrl">
+                    <div class="left">Functional Org</div>
+                    <select class="dropdown" data-ng-controller="foController as foCtrl" id="id" data-ng-model="foFormCtrl.functionalOrg.id">
+                        <option data-ng-repeat="functionalOrg in foCtrl.functionalOrgs | orderBy:'id' track by $index"
+                                data-ng-controller="foItemController as foItemCtrl" value="{{functionalOrg.id}}">
+                            {{functionalOrg.id}} - {{functionalOrg.account}}
+                        </option>
+                    </select>
+                </div>
             </div>
             <div class="row">
                 <div class="left">Site/Location</div>
