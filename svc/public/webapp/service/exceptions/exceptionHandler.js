@@ -7,7 +7,7 @@
             return function(exception, cause) {
                     $delegate(exception, cause);
                     if (exception.status === 500) {
-                        console.log(this.exception + cause);
+                        toastr.error('System Unavailable Please Contact Your Administrator', 'Error');
                     };
                 }
           });
