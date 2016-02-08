@@ -24,14 +24,12 @@ public class CreateLoginServiceOperation extends ServiceOperation{
     private String username;
 
     @Inject
-    public CreateLoginServiceOperation()
-    {
+    public CreateLoginServiceOperation() {
         wsdsUsers.put("user1@atos.net", "password1");
     }
 
     @Override
-    public JsonNode doExecute(JsonNode jsonRequest)
-    {
+    public JsonNode doExecute(JsonNode jsonRequest) {
 
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode jsonResponse = mapper.createObjectNode();

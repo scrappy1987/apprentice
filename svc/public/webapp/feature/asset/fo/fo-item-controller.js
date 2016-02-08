@@ -10,5 +10,4 @@
         vm.controllerName = "foItemController";
 
     }
-
 }());
