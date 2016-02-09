@@ -10,9 +10,9 @@
         var locationCache = [];
         console.log("This is location cache");
 
-        this.getLocation = function () {
+        this.getLocation = function (id) {
             var deferred = $q.defer();
-            locationDal.getLocation().then(function (results) {
+            locationDal.getLocation(id).then(function (results) {
             console.log("***Repository in success the value of results is***");
                     console.log(results);
                 locationCache = results;

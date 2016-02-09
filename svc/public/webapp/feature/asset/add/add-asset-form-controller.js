@@ -2,11 +2,13 @@
 
 (function () {
 
-    angular.module('app')
-        .controller("assetAddFormController",
-            ["$log", "assetRepository", "$state", AssetFormCtrl]);
+    angular.module('app').controller("addAssetFormController", ["$log", "$state", AddAssetFormCtrl]);
 
-    function AssetFormCtrl($log, assetRepository, $state) {
+    function AddAssetFormCtrl($log, $state) {
+        var vm = this;
 
+        vm.hasValidationError = false;
+        vm.functionalOrg = {};
+        vm.location = {};
     }
 }());
