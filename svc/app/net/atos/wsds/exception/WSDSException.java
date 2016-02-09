@@ -1,9 +1,13 @@
 package net.atos.wsds.exception;
 
+import net.atos.wsds.config.PropertiesManager;
+import play.Logger;
+
 /**
  * Created by a614407 on 02/02/2016.
  */
-abstract class WSDSException extends RuntimeException {
+public abstract class WSDSException extends RuntimeException {
+    private static final Logger.ALogger LOG = Logger.of( WSDSException.class);
 
     private WSDSErrorCodes errorCode;
 
@@ -22,12 +26,5 @@ abstract class WSDSException extends RuntimeException {
         return errorCode;
     }
 
-    //TO-DO Get checked
-    @Override
-    public String getMessage()
-    {
-        return getErrorCodesFileName();
-    }
-
-    protected abstract String getErrorCodesFileName();
+    public abstract String getErrorCodesFileName();
 }

@@ -47,6 +47,12 @@
         <appender-ref ref="STDOUT"/>
     </logger>
 
+    <logger name="net.atos.wsds" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
     <root level="ERROR">
         <appender-ref ref="STDOUT"/>
     </root>
