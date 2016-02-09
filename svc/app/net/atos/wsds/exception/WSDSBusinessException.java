@@ -1,5 +1,7 @@
 package net.atos.wsds.exception;
 
+import net.atos.wsds.config.PropertiesManager;
+
 /**
  * Created by a614407 on 02/02/2016.
  */
@@ -12,12 +14,12 @@ public class WSDSBusinessException extends WSDSException {
 
     public WSDSBusinessException(WSDSErrorCodes errorCodes, Throwable throwable)
     {
-        super(errorCodes);
+        super(errorCodes, throwable);
     }
 
     @Override
-    protected String getErrorCodesFileName()
+    public String getErrorCodesFileName()
     {
-        return "Todo: In WSDSBusinessException";//CHECK
+        return "Todo: In WSDSBusinessException";
     }
 }
