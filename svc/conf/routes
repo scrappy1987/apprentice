@@ -12,13 +12,16 @@ POST        /login                              controllers.resource.play.LoginE
 POST        /asset                              controllers.resource.play.AssetsEndpoint.create
 GET         /asset/:assetId                     controllers.resource.play.AssetsEndpoint.find(assetId: Long)
 
-
 GET         /contact/:locationId                controllers.resource.play.ContactEndpoint.list(locationId: Long)
 GET         /contact/:contactId/asset           controllers.resource.play.AssetsEndpoint.list(contactId: Long)
 
 GET         /location/:fo                       controllers.resource.play.LocationEndpoint.list(fo: Long)
 
 GET         /functionalorg                      controllers.resource.play.FunctionalOrganisationEndpoint.list()
+
+GET         /brands                             controllers.resource.play.BrandEndpoint.list()
+GET         /models                             controllers.resource.play.ModelEndpoint.list()
+GET         /operatingsystems                   controllers.resource.play.OperatingSystemEndpoint.list()
 
 #STATIC CONTENT
 
