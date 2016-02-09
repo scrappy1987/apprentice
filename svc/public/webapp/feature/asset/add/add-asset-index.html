@@ -1,39 +1,44 @@
 <div class="page">
 <h1>Add Assets</h1>
 
-<div data-ng-controller="assetAddController as assetAddCtrl">
+<div data-ng-controller="addAssetFormController as addAssetFormCtrl">
  <div class="box-container">
      <div class="box left">
          <h2>Organisation/Site/Person</h2>
          <div class="inner-box">
-             <div class="row">
 
+             <div data-ng-controller="addAssetController as addAssetCtrl">
 
-
-                 <div data-ng-controller="foFormController as foFormCtrl">
+                 <div class="row">
 
                      <div class="left">Functional Org</div>
 
-                     <select data-ng-controller="foController as foCtrl" id="id" data-ng-model="foFormCtrl.functionalOrg.id">
+                     <select id="functionalOrg" data-ng-model="addAssetFormCtrl.functionalOrg.id" ng-change="addAssetCtrl.getLocations(addAssetFormCtrl.functionalOrg.id)">
 
-                         <option data-ng-repeat="functionalOrg in foCtrl.functionalOrgs | orderBy:'id' track by $index"
-                                 data-ng-controller="foItemController as foItemCtrl" value="{{functionalOrg.id}}">
-
+                         <option data-ng-repeat="functionalOrg in addAssetCtrl.functionalOrgs | orderBy:'id' track by $index" value="{{functionalOrg.id}}">
                              {{functionalOrg.id}} - {{functionalOrg.account}}
-
                          </option>
+
+                     </select>
+
+
+
+
+                 </div>
+
+                 <div class="row">
+                     <div class="left">Site/Location</div>
+
+                     <select id="location" data-ng-model="addAssetFormCtrl.location.id">
+
+                         <option data-ng-repeat="location in addAssetCtrl.locations | orderBy:'id' track by $index" value="{{location.id}}">
+                             {{location.id}} - {{location.address6}}
+                         </option>
+
                      </select>
 
                  </div>
 
-
-             </div>
-
-             <div class="row">
-                 <div class="left">Site/Location</div>
-                 <select name="location" class="right">
-                     <option value="1">Dropdown</option>
-                 </select>
              </div>
              <div class="row">
                  <div class="left">Contact</div>
