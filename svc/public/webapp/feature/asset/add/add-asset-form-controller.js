@@ -10,5 +10,6 @@
         vm.hasValidationError = false;
         vm.functionalOrg = {};
         vm.location = {};
+        vm.contact = {};
     }
 }());

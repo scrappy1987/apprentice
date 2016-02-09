@@ -2,17 +2,16 @@
 
 (function () {
 
-    angular.module("app").service("contactRepository", ["$q", "$log", "contactDal", ContactRepo]);
+    angular.module("app").service("contactRepository", ["$q", "contactDal", ContactRepo]);
 
-    function ContactRepo($q, $log, contactDal) {
-        $log.debug("Instantiated contactRepository");
+    function ContactRepo($q, contactDal) {
 
         var contactCache = [];
         console.log("This is contact cache");
 
-        this.getContact = function () {
+        this.getContact = function (id) {
             var deferred = $q.defer();
-            contactDal.getContact().then(function (results) {
+            contactDal.getContact(id).then(function (results) {
             console.log("***Repository in success the value of results is***");
                     console.log(results);
                 contactCache = results;
