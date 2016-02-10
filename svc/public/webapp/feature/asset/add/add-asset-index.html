@@ -13,7 +13,7 @@
 
                      <div class="left">Functional Org</div>
 
-                     <select id="functionalOrg" data-ng-model="addAssetFormCtrl.functionalOrg.id" ng-change="assetOSPCtrl.getLocations(addAssetFormCtrl.functionalOrg.id)">
+                     <select class="form-control form-drop" id="functionalOrg" data-ng-model="addAssetFormCtrl.functionalOrg.id" ng-change="assetOSPCtrl.getLocations(addAssetFormCtrl.functionalOrg.id)">
 
                          <option data-ng-repeat="functionalOrg in assetOSPCtrl.functionalOrgs | orderBy:'id' track by $index" value="{{functionalOrg.id}}">
                              {{functionalOrg.id}} - {{functionalOrg.account}}
@@ -29,7 +29,7 @@
                  <div class="row">
                      <div class="left">Site/Location</div>
 
-                     <select id="location" data-ng-model="addAssetFormCtrl.location.id" ng-change="assetOSPCtrl.getContacts(addAssetFormCtrl.location.id)">
+                     <select class="form-control form-drop" id="location" data-ng-model="addAssetFormCtrl.location.id" ng-change="assetOSPCtrl.getContacts(addAssetFormCtrl.location.id)">
 
                          <option data-ng-repeat="location in assetOSPCtrl.locations | orderBy:'id' track by $index" value="{{location.id}}">
                              {{location.id}} - {{location.address6}}
@@ -42,7 +42,7 @@
                  <div class="row">
                      <div class="left">Contact</div>
 
-                     <select id="contact" data-ng-model="addAssetFormCtrl.contact.id">
+                     <select class="form-control form-drop" id="contact" data-ng-model="addAssetFormCtrl.contact.id">
 
                          <option data-ng-repeat="contact in assetOSPCtrl.contacts | orderBy:'id' track by $index" value="{{contact.id}}">
                              {{contact.id}}
@@ -63,7 +63,7 @@
              <div data-ng-controller="assetBMOController as assetBMOCtrl">
              <div class="row">
                  <div class="left">Brand</div>
-                 <select id="brand" data-ng-model="addAssetFormCtrl.brand.id">
+                 <select class="form-control form-drop" id="brand" data-ng-model="addAssetFormCtrl.brand.id">
 
                      <option data-ng-repeat="brand in assetBMOCtrl.brands | orderBy:'id' track by $index" value="{{brand.id}}">
                          {{brand.id}}
@@ -73,7 +73,7 @@
              </div>
              <div class="row">
                  <div class="left">Model</div>
-                 <select id="model" data-ng-model="addAssetFormCtrl.model.id">
+                 <select class="form-control form-drop" id="model" data-ng-model="addAssetFormCtrl.model.id">
 
                      <option data-ng-repeat="model in assetBMOCtrl.models | orderBy:'id' track by $index" value="{{model.id}}">
                          {{model.id}}
@@ -83,7 +83,7 @@
              </div>
              <div class="row">
                  <div class="left">OS</div>
-                 <select id="os" data-ng-model="addAssetFormCtrl.os.id">
+                 <select class="form-control form-drop" id="os" data-ng-model="addAssetFormCtrl.os.id">
 
                      <option data-ng-repeat="os in assetBMOCtrl.operatingsystems | orderBy:'id' track by $index" value="{{os.id}}">
                          {{os.id}}
