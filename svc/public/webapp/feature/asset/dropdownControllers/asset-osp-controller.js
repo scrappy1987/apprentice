@@ -1,9 +1,9 @@
 "use strict";
 (function () {
 
-    angular.module("app").controller("addAssetController", ["functionalOrganisationRepository", "locationRepository", "contactRepository", AddAssetCtrl]);
+    angular.module("app").controller("assetOSPController", ["functionalOrganisationRepository", "locationRepository", "contactRepository", AssetOSPCtrl]);
 
-    function AddAssetCtrl (functionalOrganisationRepository, locationRepository, contactRepository) {
+    function AssetOSPCtrl (functionalOrganisationRepository, locationRepository, contactRepository) {
         var vm = this;
 
         /*

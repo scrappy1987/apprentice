@@ -11,5 +11,10 @@
         vm.functionalOrg = {};
         vm.location = {};
         vm.contact = {};
+
+
+        vm.brand = {};
+        vm.model = {};
+        vm.os = {};
     }
 }());
