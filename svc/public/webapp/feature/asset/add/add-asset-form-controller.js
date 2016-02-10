@@ -16,5 +16,8 @@
         vm.brand = {};
         vm.model = {};
         vm.os = {};
+
+        vm.propertyType = {};
+        vm.status = {};
     }
 }());
