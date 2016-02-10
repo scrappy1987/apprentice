@@ -23,6 +23,9 @@ GET         /brands                             controllers.resource.play.BrandE
 GET         /models                             controllers.resource.play.ModelEndpoint.list()
 GET         /operatingsystems                   controllers.resource.play.OperatingSystemEndpoint.list()
 
+GET         /status                             controllers.resource.play.StatusEndpoint.list()
+GET         /propertytype                             controllers.resource.play.PropertyTypeEndpoint.list()
+
 #STATIC CONTENT
 
 # Home page
