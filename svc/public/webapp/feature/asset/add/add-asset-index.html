@@ -113,8 +113,12 @@
                 </div>
                 <div class="row">
                     <div class="left">Property Type</div>
-                    <select name="propertyType" class="right">
-                        <option value="1">Dropdown</option>
+                    <select id="propertyType" data-ng-model="addAssetFormCtrl.propertyType.id">
+
+                        <option data-ng-repeat="propertyType in assetDetailCtrl.propertyTypes | orderBy:'id' track by $index" value="{{propertyType.id}}">
+                            {{propertyType.id}} -  {{propertyType.value}}
+                        </option>
+
                     </select>
                 </div>
             <div class="row">
