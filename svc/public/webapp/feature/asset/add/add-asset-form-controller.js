@@ -2,22 +2,43 @@
 
 (function () {
 
-    angular.module('app').controller("addAssetFormController", ["$log", "$state", AddAssetFormCtrl]);
+    angular.module('app').controller("addAssetFormController", ["$log", "$state", "assetRepository", AddAssetFormCtrl]);
 
-    function AddAssetFormCtrl($log, $state) {
+    function AddAssetFormCtrl($log, $state, assetRepository) {
         var vm = this;
 
         vm.hasValidationError = false;
-        vm.functionalOrg = {};
-        vm.location = {};
-        vm.contact = {};
 
+        vm.asset = {};
 
-        vm.brand = {};
-        vm.model = {};
-        vm.os = {};
+        vm.saveAsset = function (assetForm) {
+            $log.debug("In asset form controller");
 
-        vm.propertyType = {};
-        vm.status = {};
+            var waitingDialog = BootstrapDialog.show({
+                message: 'Please wait - creating asset'
+            });
+
+            assetRepository.saveAsset(vm.asset).then(function (asset) {
+
+                waitingDialog.close();
+                BootstrapDialog.show({
+                    message: 'Asset saved successfully',
+                    buttons: [{
+                        id: 'button-close',
+                        label: 'Close',
+                        action: function (dialogWindow) {
+                            dialogWindow.close();
+                            $state.go("home.dashboard");
+                        }
+                    }]
+                });
+
+            }, function(error) {
+
+                waitingDialog.close();
+                $log.debug(error);
+
+            });
+        }
     }
 }());

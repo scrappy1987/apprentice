@@ -46,6 +46,7 @@ public class CreateAssetServiceOperation extends ServiceOperation
 
     @Override protected JsonNode doExecute(JsonNode jsonRequest)
     {
+
         Location location = locationDao.find(jsonRequest.path("contact").path("location").path("id").asInt());
         Contact contact = contactDao.find(jsonRequest.path("contact").path("id").asInt());
         PropertyType propertyType = propertyTypeDao.find(jsonRequest.path("propertyType").path("id").asInt());
