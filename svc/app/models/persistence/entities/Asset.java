@@ -2,6 +2,9 @@ package models.persistence.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import common.constants.WsdsConstants;
 
 @Table(name = "dbo.T_ASSETS")
@@ -80,10 +83,10 @@ public class Asset
     private String objectType;
 
     @Column(name = WsdsConstants.ASSET_JSON_AOD_ASSIGNMENT_PROPERTY, nullable = false)
-    private String aodAssignment;
+    private String aodAssignment = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
 
     @Column(name = WsdsConstants.ASSET_JSON_D_ASSIGNMENT_PROPERTY, nullable = false)
-    private String dAssignment;
+    private String dAssignment = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
 
     public Asset() {}
 
