@@ -113,14 +113,27 @@
                 </div>
                 <div class="row">
                     <div class="left">Property Type</div>
-                    <select id="propertyType" data-ng-model="addAssetFormCtrl.propertyType.id">
+                    <select data-ng-controller="assetDetailsController as assetDetailsCtrl" id="propertyType" data-ng-model="addAssetFormCtrl.propertyType.id">
 
-                        <option data-ng-repeat="propertyType in assetDetailCtrl.propertyTypes | orderBy:'id' track by $index" value="{{propertyType.id}}">
+                        <option data-ng-repeat="propertyType in assetDetailsCtrl.propertyTypes | orderBy:'id' track by $index" value="{{propertyType.id}}">
                             {{propertyType.id}} -  {{propertyType.value}}
                         </option>
 
                     </select>
                 </div>
+
+            <div class="row">
+                <div class="left">Status</div>
+                <select data-ng-controller="assetDetailsController as assetDetailsCtrl" id="status" data-ng-model="addAssetFormCtrl.status.id">
+
+                    <option data-ng-repeat="status in assetDetailsCtrl.statuses | orderBy:'id' track by $index" value="{{status.id}}">
+                        {{status.id}} -  {{status.value}}
+                    </option>
+
+                </select>
+            </div>
+
+
             <div class="row">
                 <div class="left">Host Name</div>
                 <select name="hostName" class="under">

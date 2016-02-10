@@ -8,7 +8,7 @@
 
 
         this.getPropertyType = function () {
-            return serviceCaller.http.GET("propertytypes");
+            return serviceCaller.http.GET("propertytype");
         };
     }
 }());
