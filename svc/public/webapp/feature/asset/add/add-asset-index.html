@@ -32,7 +32,7 @@
                      <select class="form-control form-drop" id="location" data-ng-model="addAssetFormCtrl.location.id" ng-change="assetOSPCtrl.getContacts(addAssetFormCtrl.location.id)">
 
                          <option data-ng-repeat="location in assetOSPCtrl.locations | orderBy:'id' track by $index" value="{{location.id}}">
-                             {{location.id}} - {{location.address6}}
+                             {{location.id}} - {{location.city}}
                          </option>
 
                      </select>
@@ -45,7 +45,7 @@
                      <select class="form-control form-drop" id="contact" data-ng-model="addAssetFormCtrl.contact.id">
 
                          <option data-ng-repeat="contact in assetOSPCtrl.contacts | orderBy:'id' track by $index" value="{{contact.id}}">
-                             {{contact.id}}
+                             {{contact.id}} - {{contact.firstName}} {{contact.surname}}
                          </option>
 
                      </select>
@@ -66,7 +66,7 @@
                  <select class="form-control form-drop" id="brand" data-ng-model="addAssetFormCtrl.brand.id">
 
                      <option data-ng-repeat="brand in assetBMOCtrl.brands | orderBy:'id' track by $index" value="{{brand.id}}">
-                         {{brand.id}}
+                         {{brand.id}} - {{brand.value}}
                      </option>
 
                  </select>
@@ -76,7 +76,7 @@
                  <select class="form-control form-drop" id="model" data-ng-model="addAssetFormCtrl.model.id">
 
                      <option data-ng-repeat="model in assetBMOCtrl.models | orderBy:'id' track by $index" value="{{model.id}}">
-                         {{model.id}}
+                         {{model.id}} - {{model.name}}
                      </option>
 
                  </select>
@@ -86,7 +86,7 @@
                  <select class="form-control form-drop" id="os" data-ng-model="addAssetFormCtrl.os.id">
 
                      <option data-ng-repeat="os in assetBMOCtrl.operatingsystems | orderBy:'id' track by $index" value="{{os.id}}">
-                         {{os.id}}
+                         {{os.id}} - {{os.value}}
                      </option>
 
                  </select>
