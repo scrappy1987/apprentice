@@ -2,7 +2,7 @@
 
     angular.module("app").controller("assetDetailsController", ["propertyTypeRepository", "statusRepository", AssetDetailsCtrl]);
 
-    function AssetDetailsCtrl (propertyTypeRepository, locationRepository) {
+    function AssetDetailsCtrl (propertyTypeRepository, statusRepository) {
         var vm = this;
 
         /*
@@ -18,8 +18,8 @@
          /*
          * Status
          */
-        StatusRepository.getStatus().then(function (results) {
-            vm.Status = results;
+        statusRepository.getStatus().then(function (results) {
+            vm.statuses = results;
         }, function (error) {
             vm.error = true;
             vm.errorMessage = error;
