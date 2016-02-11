@@ -43,7 +43,7 @@
                           }
                       }
           }).state("home.assetadd", {
-                                  url: "/asset/add",
+                      url: "/asset/add",
                                   views: {
                                       "home-content": {
                                          templateUrl: "feature/asset/add/add-asset-index.html"

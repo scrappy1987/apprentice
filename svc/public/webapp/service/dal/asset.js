@@ -6,8 +6,8 @@
 
     function AssetDal (serviceCaller) {
 
-        this.getAsset = function () {
-            return serviceCaller.http.GET("asset");
+        this.getAsset = function (id) {
+            return serviceCaller.http.GET("contact/" + id + "/asset");
         };
 
         this.saveAsset = function (assetToSave) {
@@ -19,7 +19,7 @@
         };
 
         this.deleteAsset = function (assetToDelete) {
-            return serviceCaller.http.DELETE("asset/", assetToDelete);
+            return serviceCaller.http.DELETE("asset/resource/", assetToDelete);
         };
     }
 }());

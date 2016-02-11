@@ -8,7 +8,6 @@ public abstract class ServiceOperation
     public JsonNode execute(JsonNode jsonRequest)
     {
         JsonNode jsonResponse = null;
-
         try
         {
             //Application Level Authentication / Authorization /

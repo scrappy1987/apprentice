@@ -1,7 +1,7 @@
 "use strict";
 (function () {
 
-    angular.module("app").controller("manageAssetController", ["functionalOrganisationRepository", "locationRepository", "contactRepository", "assetRepository", ManageAssetCtrl]);
+    angular.module("app").controller("manageAssetController", ["functionalOrganisationRepository", "locationRepository", "contactRepository", ManageAssetCtrl]);
 
     function ManageAssetCtrl (functionalOrganisationRepository, locationRepository, contactRepository, assetRepository) {
         var vm = this;
@@ -36,17 +36,6 @@
                 vm.errorMessage = error;
             });
         }
-
-        vm.getAssets = function(id) {
-
-            console.log(id);
-            assetRepository.getAsset(id).then(function (results) {
-            vm.assets = results;
-            }, function (error) {
-            vm.error = true;
-            vm.errorMessage = error;
-            });
-       }
 
        vm.postAssets = function(id) {
 

@@ -24,7 +24,6 @@ public class AssetsEndpoint extends ResourceEndpoint<AssetService>
     @Transactional public Result list(Long contactId)
     {
         JsonNode jsonResponse = getService().listForContact(getIdAsJson(contactId));
-        logger.info("json Response = " + jsonResponse);
         return ok(jsonResponse);
     }
 }

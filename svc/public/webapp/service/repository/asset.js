@@ -47,6 +47,7 @@
 
             var deferred = $q.defer();
             assetDal.deleteAsset(assetToDelete).then(function (assets) {
+                console.log("IN MANGE");
                 _.remove(assetCache, {
                     id: assetToDelete.id
                 });
