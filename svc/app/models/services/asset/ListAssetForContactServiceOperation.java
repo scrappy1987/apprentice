@@ -32,6 +32,7 @@ public class ListAssetForContactServiceOperation extends ServiceOperation
 
     @Override protected JsonNode doExecute(JsonNode jsonRequest)
     {
+        logger.info("******************In ListAssetClass**************");
         Contact contact = contactDao.find(jsonRequest.path("id").asInt());
         logger.info("contact: " + jsonHelper.toJson(contact));
 

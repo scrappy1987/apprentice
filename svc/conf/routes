@@ -25,7 +25,7 @@ GET         /models                             controllers.resource.play.ModelE
 GET         /operatingsystems                   controllers.resource.play.OperatingSystemEndpoint.list()
 
 GET         /status                             controllers.resource.play.StatusEndpoint.list()
-GET         /propertytype                             controllers.resource.play.PropertyTypeEndpoint.list()
+GET         /propertytype                       controllers.resource.play.PropertyTypeEndpoint.list()
 
 #STATIC CONTENT
 

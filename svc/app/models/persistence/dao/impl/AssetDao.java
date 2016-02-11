@@ -21,6 +21,7 @@ public class AssetDao extends GenericDao<Asset>
 
     public List<Asset> listForContact(Contact contact)
     {
+        Logger.info("********In AssetDao*******");
         return getEntityManager().createQuery("SELECT a FROM Asset a WHERE a.contact = :contact")
                 .setParameter("contact", contact)
                 .getResultList();
