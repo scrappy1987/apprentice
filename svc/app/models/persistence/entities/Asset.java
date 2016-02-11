@@ -83,10 +83,10 @@ public class Asset
     private String objectType;
 
     @Column(name = WsdsConstants.ASSET_JSON_AOD_ASSIGNMENT_PROPERTY, nullable = false)
-    private String aodAssignment = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+    private String aodAssignment;
 
     @Column(name = WsdsConstants.ASSET_JSON_D_ASSIGNMENT_PROPERTY, nullable = false)
-    private String dAssignment = new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime());
+    private String dAssignment;
 
     public Asset() {}
 

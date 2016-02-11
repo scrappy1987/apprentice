@@ -28,6 +28,7 @@ public class AssetService extends Service
                                 ListAssetServiceOperation listAssetServiceOperation,
                                 FindAssetServiceOperation findAssetServiceOperation,
                                 ListAssetForContactServiceOperation listAssetForContactServiceOperation,
+                                UpdateAssetServiceOperation updateAssetServiceOperation,
                                 JSONHelper jsonHelper)
     {
         super(unavailableServiceOperation);
@@ -39,6 +40,8 @@ public class AssetService extends Service
         this.findAssetServiceOperation = findAssetServiceOperation;
 
         this.listAssetForContactServiceOperation = listAssetForContactServiceOperation;
+
+        this.updateAssetServiceOperation = updateAssetServiceOperation;
 
         this.jsonHelper = jsonHelper;
     }
