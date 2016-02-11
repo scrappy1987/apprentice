@@ -27,7 +27,7 @@
                  serviceCaller.http.POST("/login", userCredentials).then(function (loginResponse, error) {
                     deferred.resolve(loginResponse);
                  }, function (error) {
-                    console.log(error);
+                    deferred.reject(error);
                  });
              } catch (e) {
                 deferred.reject(e);

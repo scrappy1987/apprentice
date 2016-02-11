@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>WSDS Application</title>
+    <link rel="icon" href="resource/favicon.ico">
+
+    <!-- Libraries -->
+    <script src="lib/lodash/lodash.min.js"></script>
+    <script src="lib/jquery/jquery-2.1.4.min.js"></script>
+    <script src="lib/angular-1.4.4/angular.min.js"></script>
+    <script src="lib/angular-1.4.4/angular-messages.js"></script>
+    <script src="lib/ui-router/angular-ui-router.js"></script>
+    <script src="lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <link href="lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="lib/bootstrap3-dialog/js/bootstrap-dialog.min.js"></script>
+    <link href="lib/bootstrap3-dialog/css/bootstrap-dialog.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="lib/angular-toastr/angular-toastr.css" />
+    <script type="text/javascript" src="lib/angular-toastr/angular-toastr.tpls.js"></script>
+
+    <!--Base styling-->
+    <link rel="stylesheet/less" href="resource/base.less" type="text/css"/>
+
+    <!--Constants-->
+    <script src="constant/data-type.js"></script>
+    <script src="constant/error-message.js"></script>
+
+
+    <!--Application-->
+    <script src="app.js"></script>
+    <script src="states/app-state-manager.js"></script>
+
+    <!--Services-->
+    <script src="service/dal/service-caller.js"></script>
+    <script src="service/security/security-manager.js"></script>
+    <script src="service/exceptions/exceptionHandler.js"></script>
+
+    <script src="../../../svc/test/webapp/mocks/service/dal/mock-asset.js"></script><!--Mocked Service-->
+    <script src="service/repository/asset.js"></script>
+
+    <script src="service/dal/functional-organisation.js"></script>
+    <script src="service/repository/functional-organisation.js"></script>
+
+    <script src="service/dal/location.js"></script>
+    <script src="service/repository/location.js"></script>
+
+    <script src="service/dal/contact.js"></script>
+    <script src="service/repository/contact.js"></script>
+
+    <script src="service/dal/brand.js"></script>
+    <script src="service/repository/brand.js"></script>
+
+    <script src="service/dal/model.js"></script>
+    <script src="service/repository/model.js"></script>
+
+    <script src="service/dal/os.js"></script>
+    <script src="service/repository/os.js"></script>
+
+    <script src="service/dal/property-type.js"></script>
+    <script src="service/repository/property-type.js"></script>
+
+    <script src="service/dal/status.js"></script>
+    <script src="service/repository/status.js"></script>
+
+    <!--Features-->
+    <script src="feature/login/login-controller.js"></script>
+    <link src="feature/login/login-index.html">
+    <link rel="stylesheet/less" href="feature/login/login.less" type="text/css"/>
+
+    <script src="feature/home/home-controller.js"></script>
+    <link rel="stylesheet/less" href="feature/home/home.less" type="text/css"/>
+
+    <script src="feature/dashboard/dashboard-controller.js"></script>
+    <link rel="stylesheet/less" href="feature/dashboard/dashboard.less" type="text/css"/>
+
+    <script src="feature/asset/manage/manage-asset-controller.js"></script>
+    <link rel="stylesheet/less" href="feature/asset/manage/manage-asset.less" type="text/css"/>
+
+    <script src="feature/asset/add/add-asset-form-controller.js"></script>
+    <link rel="stylesheet/less" href="feature/asset/add/add-asset.less" type="text/css"/>
+
+    <script src="feature/asset/dropdownControllers/asset-osp-controller.js"></script>
+    <script src="feature/asset/dropdownControllers/asset-bmo-controller.js"></script>
+    <script src="feature/asset/dropdownControllers/asset-details-controller.js"></script>
+
+    <!--LESS pre-processor - needs to be last -->
+    <script src="lib/less/less.min.js"></script>
+</head>
+<body data-ui-view="content">
+</body>
+</html>
