@@ -28,9 +28,7 @@
 
 
         vm.getContacts = function(id) {
-
             console.log(id);
-
             contactRepository.getContact(id).then(function (results) {
                 vm.contacts = results;
             }, function (error) {
@@ -42,14 +40,12 @@
         vm.getAssets = function(id) {
 
             console.log(id);
-            console.log("********************getMethodWorking**************************")
-
             assetRepository.getAsset(id).then(function (results) {
             vm.assets = results;
             }, function (error) {
-           vm.error = true;
-           vm.errorMessage = error;
-           });
+            vm.error = true;
+            vm.errorMessage = error;
+            });
        }
 
        vm.postAssets = function(id) {

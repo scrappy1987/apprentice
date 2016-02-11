@@ -11,7 +11,6 @@ POST        /login                              controllers.resource.play.LoginE
 
 POST        /asset                              controllers.resource.play.AssetsEndpoint.create
 GET         /asset/:assetId                     controllers.resource.play.AssetsEndpoint.find(assetId: Long)
-GET         /contact/:id/asset                  controllers.resource.play.AssetsEndpoint.list(id: Long)
 
 GET         /contact/:locationId                controllers.resource.play.ContactEndpoint.list(locationId: Long)
 GET         /contact/:contactId/asset           controllers.resource.play.AssetsEndpoint.list(contactId: Long)
@@ -25,7 +24,7 @@ GET         /models                             controllers.resource.play.ModelE
 GET         /operatingsystems                   controllers.resource.play.OperatingSystemEndpoint.list()
 
 GET         /status                             controllers.resource.play.StatusEndpoint.list()
-GET         /propertytype                             controllers.resource.play.PropertyTypeEndpoint.list()
+GET         /propertytype                       controllers.resource.play.PropertyTypeEndpoint.list()
 
 #STATIC CONTENT
 

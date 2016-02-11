@@ -7,8 +7,8 @@
     function AssetDal (serviceCaller) {
         console.log("Instantiated assetDal");
 
-        this.getAsset = function () {
-            return serviceCaller.http.GET("asset");
+        this.getAsset = function (id) {
+            return serviceCaller.http.GET("contact/" + id + "/asset");
         };
 
         this.saveAsset = function (assetToSave) {

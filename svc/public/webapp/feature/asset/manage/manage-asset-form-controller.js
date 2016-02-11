@@ -8,9 +8,6 @@
         var vm = this;
 
         vm.hasValidationError = false;
-        vm.functionalOrg = {};
-        vm.location = {};
-        vm.contact = {};
         vm.asset = {};
     }
 }());
