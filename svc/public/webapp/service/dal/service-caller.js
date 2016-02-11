@@ -58,9 +58,11 @@
                     return deferred.promise;
                 },
 
-                DELETE: function (apiPath, itemToDelete) {
+                DELETE: function (apiPath, assetToDelete) {
+                    console.log("In DELETE assetToDelete: " + assetToDelete);
                     var deferred = $q.defer();
-                    $http.delete(apiPath + itemToDelete.id).then(function () {
+                    $http.delete(apiPath + assetToDelete).then(function () {
+                    console.log("*******" + assetToDelete);
                         deferred.resolve();
                     }, function (e) {
                         deferred.reject(e);

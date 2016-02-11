@@ -62,7 +62,6 @@ public abstract class ResourceEndpoint<T extends Service> extends Controller
     @Transactional public Result delete(Long id)
     {
         JsonNode jsonResponse = service.delete(getIdAsJson(id));
-
         return ok(jsonResponse);
     }
 

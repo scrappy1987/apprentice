@@ -1,6 +1,7 @@
 package models.services.asset;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import common.constants.WsdsConstants;
 import common.util.json.play.JSONHelper;
 import models.persistence.dao.impl.AssetDao;
 import models.services.ServiceOperation;
@@ -26,6 +27,8 @@ public class DeleteAssetServiceOperation extends ServiceOperation
 
     @Override protected JsonNode doExecute(JsonNode jsonRequest)
     {
-        return null;
+        int id = Integer.parseInt(jsonRequest.findPath(WsdsConstants.ASSET_JSON_ID_PROPERTY).textValue());
+        dao.delete(id);
+        return jsonHelper.toJson("{\"message\":\"Deleted Asset with id" + id + "\"}");
     }
 }

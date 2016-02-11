@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import models.services.Service;
 import models.services.UnavailableServiceOperation;
 import common.util.json.play.JSONHelper;
+import play.Logger;
 
 import javax.inject.Inject;
 
@@ -29,6 +30,7 @@ public class AssetService extends Service
                                 FindAssetServiceOperation findAssetServiceOperation,
                                 ListAssetForContactServiceOperation listAssetForContactServiceOperation,
                                 UpdateAssetServiceOperation updateAssetServiceOperation,
+                                DeleteAssetServiceOperation deleteAssetServiceOperation,
                                 JSONHelper jsonHelper)
     {
         super(unavailableServiceOperation);
@@ -42,6 +44,8 @@ public class AssetService extends Service
         this.listAssetForContactServiceOperation = listAssetForContactServiceOperation;
 
         this.updateAssetServiceOperation = updateAssetServiceOperation;
+
+        this.deleteAssetServiceOperation = deleteAssetServiceOperation;
 
         this.jsonHelper = jsonHelper;
     }

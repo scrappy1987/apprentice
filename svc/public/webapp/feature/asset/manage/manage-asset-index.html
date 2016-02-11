@@ -34,17 +34,18 @@
 
             </div>
             <div class="pull-right">
-                <button type="submit" class="btn btn-primary" data-ng-click="manageAssetCtrl.postAssets(manageAssetFormCtrl.contact.id)">Search</button>
+                <button class="btn btn-primary" data-ng-click="manageAssetFormCtrl.getAssets(manageAssetFormCtrl.asset.contact.id)">Search</button>
             </div>
         </div>
     </div>
     <div class="manage panel panel-default">
         <div class="panel-heading">Search Results</div>
         <div class="panel-body">
-            <p>Results Will Show Here</p>
-            <p>Results Will Show Here</p>
-            <p>Results Will Show Here</p>
-            <p>Results Will Show Here</p>
+            <div class="searchResults" data-ng-repeat="asset in manageAssetFormCtrl.assets | orderBy:'id' track by $index" value="{{asset.id}}">
+                <button class="btn btn-danger btn-sm glyphicon glyphicon-remove" title="Delete this asset"
+                        data-ng-click="manageAssetFormCtrl.deleteAsset(asset.id)"></button>
+                <p>ID: {{asset.id}} <a data-ng-click="manageAssetFormCtrl.showDetails(asset.id)">{{asset.brand.value}} {{asset.model.name}}</a> Contact: {{asset.contact.firstName}} {{asset.contact.surname}}</p>
+            </div>
         </div>
     </div>
 
