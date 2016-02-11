@@ -34,9 +34,10 @@
 
   <!--Services-->
   <script src="service/dal/service-caller.js"></script>
+  <script src="service/security/security-manager.js"></script>
+
   <script src="service/dal/asset.js"></script>
   <script src="service/repository/asset.js"></script>
-  <script src="service/security/security-manager.js"></script>
 
   <script src="service/dal/functional-organisation.js"></script>
   <script src="service/repository/functional-organisation.js"></script>
@@ -46,6 +47,21 @@
 
   <script src="service/dal/contact.js"></script>
   <script src="service/repository/contact.js"></script>
+
+  <script src="service/dal/brand.js"></script>
+  <script src="service/repository/brand.js"></script>
+
+  <script src="service/dal/model.js"></script>
+  <script src="service/repository/model.js"></script>
+
+  <script src="service/dal/os.js"></script>
+  <script src="service/repository/os.js"></script>
+
+  <script src="service/dal/property-type.js"></script>
+  <script src="service/repository/property-type.js"></script>
+
+  <script src="service/dal/status.js"></script>
+  <script src="service/repository/status.js"></script>
 
   <!--Features-->
   <script src="feature/login/login-controller.js"></script>
@@ -59,12 +75,14 @@
   <link rel="stylesheet/less" href="feature/dashboard/dashboard.less" type="text/css"/>
 
   <script src="feature/asset/manage/manage-asset-controller.js"></script>
-  <script src="feature/asset/manage/manage-asset-form-controller.js"></script>
   <link rel="stylesheet/less" href="feature/asset/manage/manage-asset.less" type="text/css"/>
 
   <script src="feature/asset/add/add-asset-form-controller.js"></script>
-  <script src="feature/asset/add/add-asset-controller.js"></script>
   <link rel="stylesheet/less" href="feature/asset/add/add-asset.less" type="text/css"/>
+
+  <script src="feature/asset/dropdownControllers/asset-osp-controller.js"></script>
+  <script src="feature/asset/dropdownControllers/asset-bmo-controller.js"></script>
+  <script src="feature/asset/dropdownControllers/asset-details-controller.js"></script>
 
   <!--LESS pre-processor - needs to be last -->
   <script src="lib/less/less.min.js"></script>

@@ -5,10 +5,9 @@
     angular.module("app").service("assetDal", ["serviceCaller", AssetDal]);
 
     function AssetDal (serviceCaller) {
-        console.log("Instantiated assetDal");
 
-        this.getAsset = function (id) {
-            return serviceCaller.http.GET("contact/" + id + "/asset");
+        this.getAsset = function () {
+            return serviceCaller.http.GET("asset");
         };
 
         this.saveAsset = function (assetToSave) {

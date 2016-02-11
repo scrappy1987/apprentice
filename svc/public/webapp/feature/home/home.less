@@ -2,13 +2,29 @@
 
 .home {
   header {
+
+    background: #01507a;
+
     .nav-tabs {
       padding: 10px 5px 0 150px;
       background: #01507A url("@{image-path}/logo-trans-bg.png") no-repeat 10px center;
       background-size: 108px 40px;
+      width: 87%;
+      margin: auto auto;
+      border-bottom: 0px solid transparent !important;
 
       a {
         cursor: pointer;
+        font-weight: bold;
+      }
+
+      li.active > a, li.active > a:focus, li.active > a:hover {
+        border: 1px solid transparent !important;
+      }
+
+      li>a:hover {
+        background: #fff !important;
+        border: 1px solid transparent !important;
       }
     }
   }

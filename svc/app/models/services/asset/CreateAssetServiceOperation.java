@@ -10,6 +10,8 @@ import play.Logger;
 
 import javax.inject.Inject;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class CreateAssetServiceOperation extends ServiceOperation
 {
@@ -46,6 +48,7 @@ public class CreateAssetServiceOperation extends ServiceOperation
 
     @Override protected JsonNode doExecute(JsonNode jsonRequest)
     {
+
         Location location = locationDao.find(jsonRequest.path("contact").path("location").path("id").asInt());
         Contact contact = contactDao.find(jsonRequest.path("contact").path("id").asInt());
         PropertyType propertyType = propertyTypeDao.find(jsonRequest.path("propertyType").path("id").asInt());
@@ -87,6 +90,9 @@ public class CreateAssetServiceOperation extends ServiceOperation
         asset.setPropertyType(propertyType);
         asset.setSeAssignment(jsonRequest.findPath(WsdsConstants.ASSET_JSON_SE_ASSIGNMENT_PROPERTY).textValue());
         asset.setStatus(status);
+
+        asset.setAodAssignment(new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime()));
+        asset.setdAssignment(new SimpleDateFormat("yyyy-MM-dd").format(Calendar.getInstance().getTime()));
 
         return asset;
     }

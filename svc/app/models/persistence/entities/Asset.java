@@ -2,6 +2,9 @@ package models.persistence.entities;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import common.constants.WsdsConstants;
 
 @Table(name = "dbo.T_ASSETS")
