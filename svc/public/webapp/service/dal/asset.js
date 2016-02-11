@@ -5,7 +5,7 @@
     angular.module("app").service("assetDal", ["serviceCaller", AssetDal]);
 
     function AssetDal (serviceCaller) {
-        $log.debug("Instantiated assetDal");
+        console.log("Instantiated assetDal");
 
         this.getAsset = function () {
             return serviceCaller.http.GET("asset");

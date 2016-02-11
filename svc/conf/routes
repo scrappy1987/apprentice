@@ -11,6 +11,7 @@ POST        /login                              controllers.resource.play.LoginE
 
 POST        /asset                              controllers.resource.play.AssetsEndpoint.create
 GET         /asset/:assetId                     controllers.resource.play.AssetsEndpoint.find(assetId: Long)
+GET         /contact/:id/asset                  controllers.resource.play.AssetsEndpoint.list(id: Long)
 
 GET         /contact/:locationId                controllers.resource.play.ContactEndpoint.list(locationId: Long)
 GET         /contact/:contactId/asset           controllers.resource.play.AssetsEndpoint.list(contactId: Long)
