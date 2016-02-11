@@ -19,7 +19,7 @@
 
                          <div class="left">Functional Org</div>
 
-                         <select class="form-control form-drop" id="functionalOrg" data-ng-model="addAssetFormCtrl.asset.functionalOrg.id" ng-change="assetOSPCtrl.getLocations(addAssetFormCtrl.asset.functionalOrg.id)">
+                         <select class="form-control form-drop" name="functionOrg" id="functionalOrg" data-ng-model="addAssetFormCtrl.asset.functionalOrg.id" ng-change="assetOSPCtrl.getLocations(addAssetFormCtrl.asset.functionalOrg.id)" required>
 
                              <option data-ng-repeat="functionalOrg in assetOSPCtrl.functionalOrgs | orderBy:'id' track by $index" value="{{functionalOrg.id}}">
                                  {{functionalOrg.id}} - {{functionalOrg.account}}
@@ -27,15 +27,16 @@
 
                          </select>
 
-
-
+                         <div ng-messages="assetForm.functionOrg.$error" ng-if="assetForm.functionOrg.$touched" role="alert">
+                             <p3 ng-message="required">Required Field</p3>
+                         </div>
 
                      </div>
 
                      <div class="row">
                          <div class="left">Site/Location</div>
 
-                         <select class="form-control form-drop" id="location" data-ng-model="addAssetFormCtrl.asset.contact.location.id" ng-change="assetOSPCtrl.getContacts(addAssetFormCtrl.asset.contact.location.id)">
+                         <select class="form-control form-drop" name="location" id="location" data-ng-model="addAssetFormCtrl.asset.contact.location.id" ng-change="assetOSPCtrl.getContacts(addAssetFormCtrl.asset.contact.location.id)" required>
 
                              <option data-ng-repeat="location in assetOSPCtrl.locations | orderBy:'id' track by $index" value="{{location.id}}">
                                  {{location.id}} - {{location.city}}
@@ -43,18 +44,26 @@
 
                          </select>
 
+                         <div ng-messages="assetForm.location.$error" ng-if="assetForm.location.$touched" role="alert">
+                             <p3 ng-message="required">Required Field</p3>
+                         </div>
+
                      </div>
 
                      <div class="row">
                          <div class="left">Contact</div>
 
-                         <select class="form-control form-drop" id="contact" data-ng-model="addAssetFormCtrl.asset.contact.id">
+                         <select class="form-control form-drop" name="contact" id="contact" data-ng-model="addAssetFormCtrl.asset.contact.id" required>
 
                              <option data-ng-repeat="contact in assetOSPCtrl.contacts | orderBy:'id' track by $index" value="{{contact.id}}">
                                  {{contact.id}} - {{contact.firstName}} {{contact.surname}}
                              </option>
 
                          </select>
+
+                         <div ng-messages="assetForm.contact.$error" ng-if="assetForm.contact.$touched" role="alert">
+                             <p3 ng-message="required">Required Field</p3>
+                         </div>
 
                      </div>
 
@@ -69,33 +78,48 @@
                  <div data-ng-controller="assetBMOController as assetBMOCtrl">
                  <div class="row">
                      <div class="left">Brand</div>
-                     <select class="form-control form-drop" id="brand" data-ng-model="addAssetFormCtrl.asset.model.brand.id">
+                     <select class="form-control form-drop" name="brand" id="brand" data-ng-model="addAssetFormCtrl.asset.model.brand.id" required>
 
                          <option data-ng-repeat="brand in assetBMOCtrl.brands | orderBy:'id' track by $index" value="{{brand.id}}">
                              {{brand.id}} - {{brand.value}}
                          </option>
 
                      </select>
+
+                     <div ng-messages="assetForm.brand.$error" ng-if="assetForm.brand.$touched" role="alert">
+                         <p3 ng-message="required">Required Field</p3>
+                     </div>
+
                  </div>
                  <div class="row">
                      <div class="left">Model</div>
-                     <select class="form-control form-drop" id="model" data-ng-model="addAssetFormCtrl.asset.model.id">
+                     <select class="form-control form-drop" name="assetModel" id="model" data-ng-model="addAssetFormCtrl.asset.model.id" required>
 
                          <option data-ng-repeat="model in assetBMOCtrl.models | orderBy:'id' track by $index" value="{{model.id}}">
                              {{model.id}} - {{model.name}}
                          </option>
 
                      </select>
+
+                     <div ng-messages="assetForm.assetModel.$error" ng-if="assetForm.assetModel.$touched" role="alert">
+                         <p3 ng-message="required">Required Field</p3>
+                     </div>
+
                  </div>
                  <div class="row">
                      <div class="left">OS</div>
-                     <select class="form-control form-drop" id="operatingSystem" data-ng-model="addAssetFormCtrl.asset.operatingSystem.id">
+                     <select class="form-control form-drop" name="assetOS" id="operatingSystem" data-ng-model="addAssetFormCtrl.asset.operatingSystem.id" required>
 
                          <option data-ng-repeat="os in assetBMOCtrl.operatingsystems | orderBy:'id' track by $index" value="{{os.id}}">
                              {{os.id}} - {{os.value}}
                          </option>
 
                      </select>
+
+                     <div ng-messages="assetForm.assetOS.$error" ng-if="assetForm.assetOS.$touched" role="alert">
+                         <p3 ng-message="required">Required Field</p3>
+                     </div>
+
                  </div>
              </div>
              </div>
@@ -108,55 +132,72 @@
 
                 <div class="row">
                     <div class="left">Property Type</div>
-                    <select class="form-control form-drop" data-ng-controller="assetDetailsController as assetDetailsCtrl" id="propertyType" data-ng-model="addAssetFormCtrl.asset.propertyType.id">
+                    <select class="form-control form-drop" name="propertyType" data-ng-controller="assetDetailsController as assetDetailsCtrl" id="propertyType" data-ng-model="addAssetFormCtrl.asset.propertyType.id" required>
 
-                        <option data-ng-repeat="propertyType in assetDetailsCtrl.propertyTypes | orderBy:'id' track by $index" value="{{propertyType.id}}">
+                        <option data-ng-repeat="propertyType in assetDetailsCtrl.propertyTypes | orderBy:'id' track by $index" value="{{propertyType.id}}" required>
                             {{propertyType.id}} -  {{propertyType.value}}
                         </option>
 
                     </select>
+
+                    <div ng-messages="assetForm.propertyType.$error" ng-if="assetForm.propertyType.$touched" role="alert">
+                        <p3 ng-message="required">Required Field</p3>
+                    </div>
+
                 </div>
 
                 <div class="row">
                     <div class="left">Status</div>
-                    <select class="form-control form-drop" data-ng-controller="assetDetailsController as assetDetailsCtrl" id="status" data-ng-model="addAssetFormCtrl.asset.status.id">
+                    <select class="form-control form-drop" data-ng-controller="assetDetailsController as assetDetailsCtrl" name="status" id="status" data-ng-model="addAssetFormCtrl.asset.status.id" required>
 
                         <option data-ng-repeat="status in assetDetailsCtrl.statuses | orderBy:'id' track by $index" value="{{status.id}}">
                             {{status.id}} -  {{status.value}}
                         </option>
 
                     </select>
+
+                    <div ng-messages="assetForm.status.$error" ng-if="assetForm.status.$touched" role="alert">
+                        <p3 ng-message="required">Required Field</p3>
+                    </div>
                 </div>
 
                     <div class="row">
                         <div class="left" >Serial Number</div>
-                        <input type="text" id="assetSerialNo" data-ng-model="addAssetFormCtrl.asset.assetSerialNo" class="form-control form-input" />
+                        <input type="text" id="assetSerialNo" name="serialNum" data-ng-model="addAssetFormCtrl.asset.assetSerialNo" class="form-control form-input" required/>
+                        <div ng-messages="assetForm.serialNum.$error" ng-if="assetForm.serialNum.$touched" role="alert">
+                            <p3 ng-message="required">Required Field</p3>
+                        </div>
                     </div>
+
+
                     <div class="row">
                         <div class="left">Host Name</div>
-                        <input type="text" id="computerTcpIpHostName" data-ng-model="addAssetFormCtrl.asset.computerTcpIpHostName" class="form-control form-input" />
+                        <input type="text" id="computerTcpIpHostName" name="hostName" data-ng-model="addAssetFormCtrl.asset.computerTcpIpHostName" class="form-control form-input" required/>
+                        <div ng-messages="assetForm.hostName.$error" ng-if="assetForm.hostName.$touched" role="alert">
+                            <p3 ng-message="required">Required Field</p3>
+                        </div>
                     </div>
-
-
 
                 <div class="row">
                     <div class="left">Label</div>
-                    <input type="text" id="assetLabel" data-ng-model="addAssetFormCtrl.asset.assetLabel" class="form-control form-input" />
+                    <input type="text" id="assetLabel" name="label" data-ng-model="addAssetFormCtrl.asset.assetLabel" class="form-control form-input" required/>
+                    <div ng-messages="assetForm.label.$error" ng-if="assetForm.label.$touched" role="alert">
+                        <p3 ng-message="required">Required Field</p3>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="left">Last Ticket</div>
-                    <input type="text" id="aoSDMLastTicketNumber" data-ng-model="addAssetFormCtrl.asset.aoSDMLastTicketNumber" class="form-control form-input" />
+                    <input type="text" id="aoSDMLastTicketNumber" name="lastTicket" data-ng-model="addAssetFormCtrl.asset.aoSDMLastTicketNumber" class="form-control form-input" required/>
+                    <div ng-messages="assetForm.lastTicket.$error" ng-if="assetForm.lastTicket.$touched" role="alert">
+                        <p3 ng-message="required">Required Field</p3>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="button-center"><button type="submit" class="btn btn-primary">Save</button></div>
+        <div class="button-center"><button type="submit" ng-disabled="assetForm.$invalid" class="btn btn-primary">Save</button></div>
 
 </form>
 </div>
 </div>
-
-
-
-
 
