@@ -43,10 +43,10 @@
         <div class="panel-body">
             <div class="searchResults" data-ng-repeat="asset in manageAssetFormCtrl.assets | orderBy:'id' track by $index" value="{{asset.id}}">
                 <button class="btn btn-danger btn-sm glyphicon glyphicon-remove" title="Delete this asset"
-                        data-ng-click="manageAssetFormCtrl.deleteAsset(asset.id)"></button>
-                <p>ID: {{asset.id}} <a data-ng-click="manageAssetFormCtrl.showDetails(asset.id)">{{asset.brand.value}} {{asset.model.name}}</a> Contact: {{asset.contact.firstName}} {{asset.contact.surname}}</p>
+                        data-ng-click="manageAssetFormCtrl.deleteAsset(asset.id)"></button>  ID: {{asset.id}} <a data-ng-click="manageAssetFormCtrl.showDetails(asset.id)">{{asset.brand.value}} {{asset.model.name}}</a> Contact: {{asset.contact.firstName}} {{asset.contact.surname}}
             </div>
         </div>
     </div>
 
 </div>
+

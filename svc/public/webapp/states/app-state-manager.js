@@ -50,5 +50,12 @@
                                       }
                                   }
                       })
-        });
+        })}).state("home.maintainAsset", {
+                    url: "/asset/maintain",
+                                views: {
+                                    "home-content": {
+                                       templateUrl: "feature/asset/manage/maintain-asset-index.html"
+                                    }
+                                }
+                    });
 }());
