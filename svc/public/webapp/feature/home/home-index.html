@@ -4,7 +4,7 @@
             <li data-ng-class="{'active': homeCtrl.isAtDashboard()}"><a data-ng-click="homeCtrl.navigateToDashboard()">Dashboard</a></li>
             <li data-ng-class="{'active': homeCtrl.isAtAsset()}"><a data-ng-click="homeCtrl.navigateToManageAsset()">Manage Asset</a></li>
             <li data-ng-class="{'active': homeCtrl.isAtAssetAdd()}"><a data-ng-click="homeCtrl.navigateToAssetAdd()">Add Asset</a></li>
-            
+            <li data-ng-class="{'active': homeCtrl.isAtAssetEdit()}"><a ui-sref="home.assetedit({ assetId: 1 })">Edit Asset (test)</a></li>
             <li class="navbar-right right-nav-tab"><a data-ng-click="homeCtrl.logout()">Logout</a></li>
         </ul>
 

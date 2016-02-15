@@ -21,6 +21,10 @@
             return $state.is("home.assetadd");
         };
 
+        vm.isAtAssetEdit = function() {
+            return $state.is("home.assetedit");
+        };
+
         vm.navigateToDashboard = function () {
             $state.go("home.dashboard");
         };

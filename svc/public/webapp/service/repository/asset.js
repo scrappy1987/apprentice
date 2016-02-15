@@ -10,10 +10,10 @@
         var assetCache = [];
         console.log("This is asset cache");
 
-        this.getAsset = function (criteria) {
+        this.getAsset = function (id) {
 
             var deferred = $q.defer();
-            assetDal.getAsset().then(function (results) {
+            assetDal.getAsset(id).then(function (results) {
             console.log("***Repository in success the value of results is***");
                     console.log(results);
                 assetCache = results;
@@ -30,15 +30,19 @@
         var deferred = $q.defer();
         var isUpdate = assetToSave.hasOwnProperty("id");
 
-        assetDal.saveAsset(assetToSave).then(function (asset) {
-
-                if (!isUpdate) {
-                    assetCache.push(asset);
-                }
+        if(isUpdate) {
+            assetDal.updateAsset(assetToSave).then(function (asset) {
                 deferred.resolve(asset);
             }, function (error) {
                 deferred.reject(error);
             });
+        } else {
+            assetDal.saveAsset(assetToSave).then(function (asset) {
+                deferred.resolve(asset);
+            }, function (error) {
+                deferred.reject(error);
+            });
+        }
 
             return deferred.promise;
         };

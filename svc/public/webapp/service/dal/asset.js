@@ -6,8 +6,8 @@
 
     function AssetDal (serviceCaller) {
 
-        this.getAsset = function () {
-            return serviceCaller.http.GET("asset");
+        this.getAsset = function (id) {
+            return serviceCaller.http.GET("asset/" + id);
         };
 
         this.saveAsset = function (assetToSave) {
@@ -15,7 +15,7 @@
         };
 
         this.updateAsset = function (assetToUpdate) {
-            return serviceCaller.http.PUT("asset/", assetToUpdate);
+            return serviceCaller.http.PUT("asset", assetToUpdate);
         };
 
         this.deleteAsset = function (assetToDelete) {

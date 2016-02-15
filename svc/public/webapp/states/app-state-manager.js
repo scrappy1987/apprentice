@@ -43,12 +43,22 @@
                           }
                       }
           }).state("home.assetadd", {
-                                  url: "/asset/add",
-                                  views: {
-                                      "home-content": {
-                                         templateUrl: "feature/asset/add/add-asset-index.html"
-                                      }
-                                  }
-                      })
+                      url: "/asset/add",
+                      views: {
+                          "home-content": {
+                             templateUrl: "feature/asset/add/add-asset-index.html"
+                          }
+                      }
+          }).state("home.assetedit", {
+            url: "/asset/edit/:assetId",
+            controller: function ($state) {
+                $state.params.assetId = 0;
+            },
+            views: {
+                "home-content": {
+                    templateUrl: "feature/asset/edit/edit-asset-index.html"
+                }
+            }
+        })
         });
 }());
