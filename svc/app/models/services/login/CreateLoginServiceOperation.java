@@ -34,11 +34,14 @@ public class CreateLoginServiceOperation extends ServiceOperation{
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode jsonResponse = mapper.createObjectNode();
         boolean authenticated = isAuthenticated(jsonRequest);
-        if (authenticated)
+        if (authenticated) {
             jsonResponse.put("authenticated", "true");
-        else
+            logger.info("PASSWORD ACCEPTED");
+        }
+        else {
             jsonResponse.put("authenticated", "false");
-
+            logger.info("INCORRECT PASSWORD");
+        }
         return jsonResponse;
     }
 
