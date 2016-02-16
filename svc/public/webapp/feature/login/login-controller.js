@@ -10,8 +10,8 @@
 
              vm.login = function () {
 
-                 vm.credentials = {"user1@atos.net" : "password1"};
-//                 vm.credentials = {username: vm.username, password: vm.password};
+                 //vm.credentials = {"user1@atos.net" : "password1"};
+                vm.credentials = {username: vm.username, password: vm.password};
 
                  securityManager.logIn(vm.credentials).then(function (response, error) {
                      if (response.authenticated === "true") {

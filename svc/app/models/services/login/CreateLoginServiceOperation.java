@@ -20,7 +20,7 @@ import java.util.logging.*;
 public class CreateLoginServiceOperation extends ServiceOperation{
 
     private HashMap<String, String> wsdsUsers = new HashMap<>();
-    private static final Logger LOGGER = Logger.getLogger(CreateLoginServiceOperation.class.getName());
+    private static final Logger logger = Logger.getLogger(CreateLoginServiceOperation.class.getName());
     private String username;
 
     @Inject
@@ -29,26 +29,27 @@ public class CreateLoginServiceOperation extends ServiceOperation{
     }
 
     @Override
-    public JsonNode doExecute(JsonNode jsonRequest) {
-
+    public JsonNode doExecute(JsonNode jsonRequest)
+    {
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode jsonResponse = mapper.createObjectNode();
         boolean authenticated = isAuthenticated(jsonRequest);
-        System.out.println(authenticated); // TODO Testing
-        if (authenticated)
+        if (authenticated) {
             jsonResponse.put("authenticated", "true");
-        else
+            logger.info("PASSWORD ACCEPTED");
+        }
+        else {
             jsonResponse.put("authenticated", "false");
-
+            logger.info("INCORRECT PASSWORD");
+        }
         return jsonResponse;
     }
 
 
-    private boolean isAuthenticated(JsonNode jsonRequest) {
-
+    private boolean isAuthenticated(JsonNode jsonRequest)
+    {
         Object[] keySet = wsdsUsers.keySet().toArray();
         if (usernameFound(jsonRequest, keySet) && passwordMatches(jsonRequest))
-
             return true;
         return false;
     }
@@ -58,16 +59,15 @@ public class CreateLoginServiceOperation extends ServiceOperation{
         for (int key = 0; key < wsdsUsers.size(); key++)
         {
             username = (String ) keySet[key];
-            if(jsonRequest.has(username))
+            if(jsonRequest.get("username").asText().equals(username))
                 return true;
         }
-
         return false;
     }
 
     private boolean passwordMatches(JsonNode jsonRequest)
     {
-        String password = jsonRequest.findValue(username).textValue();
+        String password = jsonRequest.findValue("password").textValue();
         if (password.equals(wsdsUsers.get(username)))
             return true;
         return false;

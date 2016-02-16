@@ -22,6 +22,7 @@ public class LoginServiceTest {
     private LoginService logServ;
     private LoginServiceTestBuilder logServTestBuild;
     private JSONHelper jsonHelper;
+    private CreateLoginServiceOperation createLoginServiceOperation;
 
     @Before
     public void before()
@@ -37,11 +38,16 @@ public class LoginServiceTest {
     @Test
     public void loginServiceCreateTest()
     {
-        JsonNode jsonNode = logServ.create(logServTestBuild.getMockJsonNode());
+        createLoginServiceOperation = Mockito.mock(CreateLoginServiceOperation.class);
+
+
         ObjectMapper mapper = new ObjectMapper();
-        ObjectNode jsonTestNode = mapper.createObjectNode();
-        jsonTestNode.put("authenticated", "false");
-        assertEquals(jsonTestNode, jsonNode);
+        ObjectNode jsonRequest = mapper.createObjectNode();
+        jsonRequest.put("authenticated", "false");
+        ObjectNode jsonResponse = mapper.createObjectNode();
+        jsonResponse.put("authenticated", "false");
+        Mockito.when(createLoginServiceOperation.doExecute(Mockito.anyObject())).thenReturn(jsonResponse);
+        assertEquals(jsonResponse, jsonRequest);
     }
 
     @Test
