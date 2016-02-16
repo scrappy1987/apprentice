@@ -12,8 +12,25 @@
 
         this.getAsset = function (id) {
 
+            console.log("In getAsset");
             var deferred = $q.defer();
             assetDal.getAsset(id).then(function (results) {
+            console.log("***ASSETRepository in success the value of results is***");
+                    console.log(results);
+                assetCache = results;
+                deferred.resolve(results);
+            }, function (error) {
+                deferred.reject(error);
+            });
+
+            return deferred.promise;
+        };
+
+        this.getAssetFromContact = function (id) {
+
+            console.log("In getAsset");
+            var deferred = $q.defer();
+            assetDal.getAssetFromContact(id).then(function (results) {
             console.log("***ASSETRepository in success the value of results is***");
                     console.log(results);
                 assetCache = results;
@@ -30,15 +47,19 @@
         var deferred = $q.defer();
         var isUpdate = assetToSave.hasOwnProperty("id");
 
-        assetDal.saveAsset(assetToSave).then(function (asset) {
-
-                if (!isUpdate) {
-                    assetCache.push(asset);
-                }
+       if(isUpdate) {
+                    assetDal.updateAsset(assetToSave).then(function (asset) {
+                        deferred.resolve(asset);
+                    }, function (error) {
+                        deferred.reject(error);
+                    });
+                } else {
+                    assetDal.saveAsset(assetToSave).then(function (asset) {
                 deferred.resolve(asset);
             }, function (error) {
                 deferred.reject(error);
             });
+        }
 
             return deferred.promise;
         };
@@ -47,7 +68,7 @@
 
             var deferred = $q.defer();
             assetDal.deleteAsset(assetToDelete).then(function (assets) {
-                console.log("IN MANGE");
+
                 _.remove(assetCache, {
                     id: assetToDelete.id
                 });

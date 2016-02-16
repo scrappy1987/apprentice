@@ -10,7 +10,7 @@
 POST        /login                              controllers.resource.play.LoginEndpoint.login()
 
 POST        /asset                              controllers.resource.play.AssetsEndpoint.create
-GET         /asset/:assetId                     controllers.resource.play.AssetsEndpoint.find(assetId: Long)
+GET         /asset/edit/:assetId                controllers.resource.play.AssetsEndpoint.find(assetId: Long)
 PUT         /asset                              controllers.resource.play.AssetsEndpoint.update
 DELETE      /asset/resource/:id                 controllers.resource.play.AssetsEndpoint.delete(id: Long)
 

@@ -1,0 +1,112 @@
+<div class="page">
+ <h1>Edit Asset</h1>
+     <div data-ng-controller="editAssetFormController as editAssetFormCtrl">
+     <form name="assetForm"
+           data-ng-submit="editAssetFormCtrl.saveAsset(assetForm)"
+           method="PUT"
+           novalidate="novalidate">
+          <div class="box-container">
+              <div class="box left">
+                  <h2>Organisation/Site/Person</h2>
+                  <div class="inner-box">
+                      <div data-ng-controller="assetOSPController as assetOSPCtrl">
+                          <div class="row">
+                              <div class="left">Functional Org</div>
+                              <select class="form-control form-drop" id="functionalOrg" data-ng-model="editAssetFormCtrl.asset.functionalOrg.id" ng-change="assetOSPCtrl.getLocations(editAssetFormCtrl.asset.functionalOrg.id)">
+                                  <option data-ng-repeat="functionalOrg in assetOSPCtrl.functionalOrgs | orderBy:'id' track by $index" value="{{functionalOrg.id}}">
+                                      {{functionalOrg.id}} - {{functionalOrg.account}}
+                                  </option>
+                              </select>
+                          </div>
+                          <div class="row">
+                              <div class="left">Site/Location</div>
+                              <select class="form-control form-drop" id="location" data-ng-model="editAssetFormCtrl.asset.contact.location.id" ng-change="assetOSPCtrl.getContacts(editAssetFormCtrl.asset.contact.location.id)">
+                                  <option data-ng-repeat="location in assetOSPCtrl.locations | orderBy:'id' track by $index" value="{{location.id}}">
+                                      {{location.id}} - {{location.city}}
+                                  </option>
+                              </select>
+                          </div>
+                          <div class="row">
+                              <div class="left">Contact</div>
+                              <select class="form-control form-drop" id="contact" data-ng-model="editAssetFormCtrl.asset.contact.id">
+                                  <option data-ng-repeat="contact in assetOSPCtrl.contacts | orderBy:'id' track by $index" value="{{contact.id}}">
+                                      {{contact.id}} - {{contact.firstName}} {{contact.surname}}
+                                  </option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="box right">
+                  <h2>Brand/Model/Os</h2>
+                  <div class="inner-box">
+                      <div data-ng-controller="assetBMOController as assetBMOCtrl">
+                      <div class="row">
+                          <div class="left">Brand</div>
+                          <select class="form-control form-drop" id="brand" data-ng-model="editAssetFormCtrl.asset.model.brand.id">
+                              <option data-ng-repeat="brand in assetBMOCtrl.brands | orderBy:'id' track by $index" value="{{brand.id}}">
+                                  {{brand.id}} - {{brand.value}}
+                              </option>
+                          </select>
+                      </div>
+                      <div class="row">
+                          <div class="left">Model</div>
+                          <select class="form-control form-drop" id="model" data-ng-model="editAssetFormCtrl.asset.model.id">
+                              <option data-ng-repeat="model in assetBMOCtrl.models | orderBy:'id' track by $index" value="{{model.id}}">
+                                  {{model.id}} - {{model.name}}
+                              </option>
+                          </select>
+                      </div>
+                      <div class="row">
+                          <div class="left">OS</div>
+                          <select class="form-control form-drop" id="operatingSystem" data-ng-model="editAssetFormCtrl.asset.operatingSystem.id">
+                              <option data-ng-repeat="os in assetBMOCtrl.operatingsystems | orderBy:'id' track by $index" value="{{os.id}}">
+                                  {{os.id}} - {{os.value}}
+                              </option>
+                          </select>
+                      </div>
+                  </div>
+                  </div>
+              </div>
+          </div>
+             <div class="box below">
+                 <h2>Asset Details</h2>
+                 <div class="inner-box-below">
+                     <div class="row">
+                         <div class="left">Property Type</div>
+                         <select class="form-control form-drop" data-ng-controller="assetDetailsController as assetDetailsCtrl" id="propertyType" data-ng-model="editAssetFormCtrl.asset.propertyType.id">
+                             <option data-ng-repeat="propertyType in assetDetailsCtrl.propertyTypes | orderBy:'id' track by $index" value="{{propertyType.id}}">
+                                 {{propertyType.id}} -  {{propertyType.value}}
+                             </option>
+                         </select>
+                     </div>
+                     <div class="row">
+                         <div class="left">Status</div>
+                         <select class="form-control form-drop" data-ng-controller="assetDetailsController as assetDetailsCtrl" id="status" data-ng-model="editAssetFormCtrl.asset.status.id">
+                             <option data-ng-repeat="status in assetDetailsCtrl.statuses | orderBy:'id' track by $index" value="{{status.id}}">
+                                 {{status.id}} -  {{status.value}}
+                             </option>
+                         </select>
+                     </div>
+                         <div class="row">
+                             <div class="left" >Serial Number</div>
+                             <input type="text" id="assetSerialNo" data-ng-model="editAssetFormCtrl.asset.assetSerialNo" class="form-control form-input" />
+                         </div>
+                         <div class="row">
+                             <div class="left">Host Name</div>
+                             <input type="text" id="computerTcpIpHostName" data-ng-model="editAssetFormCtrl.asset.computerTcpIpHostName" class="form-control form-input" />
+                         </div>
+                     <div class="row">
+                         <div class="left">Label</div>
+                         <input type="text" id="assetLabel" data-ng-model="editAssetFormCtrl.asset.assetLabel" class="form-control form-input" />
+                     </div>
+                     <div class="row">
+                         <div class="left">Last Ticket</div>
+                         <input type="text" id="aoSDMLastTicketNumber" data-ng-model="editAssetFormCtrl.asset.aoSDMLastTicketNumber" class="form-control form-input" />
+                     </div>
+                 </div>
+             </div>
+             <div class="button-center"><button type="submit" class="btn btn-primary">Update</button></div>
+        </form>
+    </div>
+ </div>

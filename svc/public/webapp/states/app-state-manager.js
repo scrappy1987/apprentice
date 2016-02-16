@@ -49,13 +49,17 @@
                                          templateUrl: "feature/asset/add/add-asset-index.html"
                                       }
                                   }
-                      })
-        })}).state("home.maintainAsset", {
-                    url: "/asset/maintain",
-                                views: {
-                                    "home-content": {
-                                       templateUrl: "feature/asset/manage/maintain-asset-index.html"
-                                    }
-                                }
-                    });
+
+        }).state("home.assetedit", {
+                        url: "/asset/edit/:assetId",
+                         controller: function($scope, $stateParams) {
+                                    $scope.assetId = $stateParams.assetId;
+                                },
+                        views: {
+                            "home-content": {
+                                templateUrl: "feature/asset/edit/edit-asset-index.html"
+                            }
+                        }
+                    })
+                 });
 }());

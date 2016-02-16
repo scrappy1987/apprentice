@@ -17,7 +17,7 @@
                 message: 'Please Wait - retrieving asset'
             });
 
-            assetRepository.getAsset(id).then (function(results) {
+            assetRepository.getAssetFromContact(id).then (function(results) {
 
             waitingDialog.close();
                     console.log(results);

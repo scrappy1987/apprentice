@@ -3,7 +3,6 @@
         <div class="panel-heading1">Manage Assets</div>
         <div class="panel-body">
             <div data-ng-controller="manageAssetController as manageAssetCtrl">
-
                 <div class="row">
                     <div class="left">Functional Org</div>
                     <select id="functionalOrg" class="right" data-ng-model="manageAssetFormCtrl.asset.functionalOrg.id" ng-change="manageAssetCtrl.getLocations(manageAssetFormCtrl.asset.functionalOrg.id)">
@@ -13,7 +12,6 @@
                         </option>
                     </select>
                 </div>
-
                 <div class="row">
                     <div class="left">Site/Location</div>
                     <select id="location" class="right" data-ng-model="manageAssetFormCtrl.asset.contact.location.id" ng-change="manageAssetCtrl.getContacts(manageAssetFormCtrl.asset.contact.location.id)">
@@ -22,7 +20,6 @@
                         </option>
                     </select>
                 </div>
-
                 <div class="row">
                     <div class="left">Contact</div>
                     <select id="contact" class="right" data-ng-model="manageAssetFormCtrl.asset.contact.id" >
@@ -31,7 +28,6 @@
                         </option>
                     </select>
                 </div>
-
             </div>
             <div class="pull-right">
                 <button class="btn btn-primary" data-ng-click="manageAssetFormCtrl.getAssets(manageAssetFormCtrl.asset.contact.id)">Search</button>
@@ -43,10 +39,9 @@
         <div class="panel-body">
             <div class="searchResults" data-ng-repeat="asset in manageAssetFormCtrl.assets | orderBy:'id' track by $index" value="{{asset.id}}">
                 <button class="btn btn-danger btn-sm glyphicon glyphicon-remove" title="Delete this asset"
-                        data-ng-click="manageAssetFormCtrl.deleteAsset(asset.id)"></button>  ID: {{asset.id}} <a data-ng-click="manageAssetFormCtrl.showDetails(asset.id)">{{asset.brand.value}} {{asset.model.name}}</a> Contact: {{asset.contact.firstName}} {{asset.contact.surname}}
+                        data-ng-click="manageAssetFormCtrl.deleteAsset(asset.id)"></button>  ID: {{asset.id}} <a ui-sref="home.assetedit({assetId: asset.id})">{{asset.brand.value}} {{asset.model.name}}</a> Contact: {{asset.contact.firstName}} {{asset.contact.surname}}
             </div>
         </div>
     </div>
-
 </div>
 

@@ -3,7 +3,7 @@
 (function () {
 
     angular.module("app").service("contactDal", ["serviceCaller", ContactDal]);
-
+    console.log("In ContactDal");
     function ContactDal (serviceCaller) {
 
 

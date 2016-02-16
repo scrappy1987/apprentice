@@ -36,7 +36,7 @@
         vm.getContacts = function(id) {
 
             console.log(id);
-
+            console.log("OSP Controller Contact: " + contact);
             contactRepository.getContact(id).then(function (results) {
                 vm.contacts = results;
             }, function (error) {

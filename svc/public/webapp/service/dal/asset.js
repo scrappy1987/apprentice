@@ -6,16 +6,21 @@
 
     function AssetDal (serviceCaller) {
 
-        this.getAsset = function (id) {
+        this.getAssetFromContact = function (id) {
             return serviceCaller.http.GET("contact/" + id + "/asset");
+        };
+
+        this.getAsset = function (id) {
+            return serviceCaller.http.GET("asset/edit/" + id);
         };
 
         this.saveAsset = function (assetToSave) {
             return serviceCaller.http.POST("asset", assetToSave);
+
         };
 
         this.updateAsset = function (assetToUpdate) {
-            return serviceCaller.http.PUT("asset/", assetToUpdate);
+            return serviceCaller.http.PUT("asset", assetToUpdate);
         };
 
         this.deleteAsset = function (assetToDelete) {
