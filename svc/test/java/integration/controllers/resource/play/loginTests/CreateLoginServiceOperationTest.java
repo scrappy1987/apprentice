@@ -31,7 +31,8 @@ public class CreateLoginServiceOperationTest {
     public void testReturnTrue()
     {
         responseNode.put("authenticated", "true");
-        jsonNode.put("user1@atos.net","password1");
+        jsonNode.put("username","user1@atos.net");
+        jsonNode.put("password","password1");
         assertEquals(responseNode,loginOp.doExecute(jsonNode));
     }
 
@@ -39,7 +40,8 @@ public class CreateLoginServiceOperationTest {
     public void testReturnFalse()
     {
         responseNode.put("authenticated", "false");
-        jsonNode.put("user2","pass2");
+        jsonNode.put("username", "invalidUserName@notValid.net");
+        jsonNode.put("password","pass2");
         assertEquals(responseNode,loginOp.doExecute(jsonNode));
     }
 }

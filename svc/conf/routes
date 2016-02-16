@@ -7,7 +7,7 @@
 
 # DYNAMIC CONTENT
 
-POST        /login                              controllers.resource.play.LoginEndpoint.login()
+POST        /login                              controllers.resource.play.LoginEndpoint.login
 
 POST        /asset                              controllers.resource.play.AssetsEndpoint.create
 GET         /asset/:assetId                     controllers.resource.play.AssetsEndpoint.find(assetId: Long)
