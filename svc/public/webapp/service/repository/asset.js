@@ -44,22 +44,24 @@
 
         this.saveAsset = function (assetToSave) {
 
-        var deferred = $q.defer();
-        var isUpdate = assetToSave.hasOwnProperty("id");
+            console.log("In saveAsset, assetToSave: ");
+            console.log(assetToSave);
+            var deferred = $q.defer();
+            var isUpdate = assetToSave.hasOwnProperty("id");
 
-       if(isUpdate) {
-                    assetDal.updateAsset(assetToSave).then(function (asset) {
-                        deferred.resolve(asset);
-                    }, function (error) {
-                        deferred.reject(error);
-                    });
-                } else {
-                    assetDal.saveAsset(assetToSave).then(function (asset) {
-                deferred.resolve(asset);
-            }, function (error) {
-                deferred.reject(error);
-            });
-        }
+           if(isUpdate) {
+                        assetDal.updateAsset(assetToSave).then(function (asset) {
+                            deferred.resolve(asset);
+                        }, function (error) {
+                            deferred.reject(error);
+                        });
+                    } else {
+                        assetDal.saveAsset(assetToSave).then(function (asset) {
+                    deferred.resolve(asset);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+            }
 
             return deferred.promise;
         };

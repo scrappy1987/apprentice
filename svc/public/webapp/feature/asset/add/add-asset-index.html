@@ -110,7 +110,7 @@
                      <div class="left">OS</div>
                      <select class="form-control form-drop" name="assetOS" id="operatingSystem" data-ng-model="addAssetFormCtrl.asset.operatingSystem.id" required>
 
-                         <option data-ng-repeat="os in assetBMOCtrl.operatingsystems | orderBy:'id' track by $index" value="{{os.id}}">
+                         <option data-ng-repeat="os in assetBMOCtrl.operatingSystems | orderBy:'id' track by $index" value="{{os.id}}">
                              {{os.id}} - {{os.value}}
                          </option>
 
