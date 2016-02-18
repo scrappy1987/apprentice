@@ -5,32 +5,44 @@
             <div data-ng-controller="manageAssetController as manageAssetCtrl">
                 <div class="row">
                     <div class="left">Functional Org</div>
-                    <select id="functionalOrg" class="right" data-ng-model="manageAssetFormCtrl.asset.functionalOrg.id" ng-change="manageAssetCtrl.getLocations(manageAssetFormCtrl.asset.functionalOrg.id)">
-                        <option data-ng-repeat="functionalOrg in manageAssetCtrl.functionalOrgs | orderBy:'id' track by $index"
-                                value="{{functionalOrg.id}}">
-                            {{functionalOrg.id}} - {{functionalOrg.account}}
+                    <select id="functionalOrg" class="right"
+                            data-ng-model="functionalOrg"
+                            ng-options="functionalOrg.account for functionalOrg in manageAssetCtrl.functionalOrgs"
+                            ng-change="manageAssetCtrl.getLocations(functionalOrg.id)">
+                        <option value="" disabled selected>
+                            Select a Functional Organisation
                         </option>
                     </select>
                 </div>
                 <div class="row">
                     <div class="left">Site/Location</div>
-                    <select id="location" class="right" data-ng-model="manageAssetFormCtrl.asset.contact.location.id" ng-change="manageAssetCtrl.getContacts(manageAssetFormCtrl.asset.contact.location.id)">
-                        <option data-ng-repeat="location in manageAssetCtrl.locations | orderBy:'id' track by $index" value="{{location.id}}">
-                            {{location.id}} - {{location.address6}}
+                    <select id="location" class="right"
+                            data-ng-model="location"
+                            ng-change="manageAssetCtrl.getContacts(location.id);
+                            manageAssetFormCtrl.setCurrentLocationId(location.id)"
+                            ng-options="location.name for location in manageAssetCtrl.locations">
+                        <option value="" disabled selected>
+                            Select a Location
                         </option>
                     </select>
                 </div>
                 <div class="row">
                     <div class="left">Contact</div>
-                    <select id="contact" class="right" data-ng-model="manageAssetFormCtrl.asset.contact.id" >
-                        <option data-ng-repeat="contact in manageAssetCtrl.contacts | orderBy:'id' track by $index" value="{{contact.id}}">
-                            {{contact.id}}
+                    <select id="contact" class="right"
+                            data-ng-model="contact"
+                            ng-change="manageAssetFormCtrl.setCurrentContactId(contact.id)"
+                            ng-options="contact.firstName + '&nbsp;' + contact.surname for contact in manageAssetCtrl.contacts">
+                        <option value="" disabled selected>
+                            Select a Contact
                         </option>
                     </select>
                 </div>
             </div>
             <div class="pull-right">
-                <button class="btn btn-primary" data-ng-click="manageAssetFormCtrl.getAssets(manageAssetFormCtrl.asset.contact.id)">Search</button>
+                <button class="btn btn-primary"
+                        data-ng-click="manageAssetFormCtrl.getAssets()">
+                    Search
+                </button>
             </div>
         </div>
     </div>
