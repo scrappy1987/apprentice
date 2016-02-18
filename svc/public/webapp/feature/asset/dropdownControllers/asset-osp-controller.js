@@ -22,7 +22,7 @@
         vm.getLocations = function(id) {
 
             console.log(id);
-
+            vm.currentFunctionalOrgId = id;
             locationRepository.getLocation(id).then(function (results) {
                 vm.locations = results;
             }, function (error) {
@@ -36,7 +36,6 @@
         vm.getContacts = function(id) {
 
             console.log(id);
-            console.log("OSP Controller Contact: " + contact);
             contactRepository.getContact(id).then(function (results) {
                 vm.contacts = results;
             }, function (error) {
