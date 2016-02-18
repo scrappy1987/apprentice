@@ -1,5 +1,6 @@
 <div class="page">
  <h1>Edit Asset</h1>
+    <p>Edit your asset here using the form, reselect any current information in the asset that needs to be kept the same.</p>
      <div data-ng-controller="editAssetFormController as editAssetFormCtrl">
      <form name="assetForm"
            data-ng-submit="editAssetFormCtrl.saveAsset(assetForm)"
@@ -12,27 +13,48 @@
                       <div data-ng-controller="assetOSPController as assetOSPCtrl">
                           <div class="row">
                               <div class="left">Functional Org</div>
-                              <select class="form-control form-drop" id="functionalOrg" data-ng-model="editAssetFormCtrl.asset.functionalOrg.id" ng-change="assetOSPCtrl.getLocations(editAssetFormCtrl.asset.functionalOrg.id)">
-                                  <option data-ng-repeat="functionalOrg in assetOSPCtrl.functionalOrgs | orderBy:'id' track by $index" value="{{functionalOrg.id}}">
-                                      {{functionalOrg.id}} - {{functionalOrg.account}}
+                              <select class="form-control form-drop"
+                                      name="functionalOrg"
+                                      data-ng-model="functionalOrg"
+                                      ng-options="functionalOrg.account for functionalOrg in assetOSPCtrl.functionalOrgs"
+                                      ng-change="assetOSPCtrl.getLocations(functionalOrg.id)" required>
+                                  <option class="placeholder" value="" disabled selected>
+                                      Current Functional Org: {{editAssetFormCtrl.asset.location.functionalOrg.account}}
                                   </option>
                               </select>
+                              <div ng-messages="assetForm.functionalOrg.$error" ng-if="assetForm.functionalOrg.$touched" role="alert">
+                                  <p3 ng-message="required">Required Field</p3>
+                              </div>
                           </div>
                           <div class="row">
                               <div class="left">Site/Location</div>
-                              <select class="form-control form-drop" id="location" data-ng-model="editAssetFormCtrl.asset.contact.location.id" ng-change="assetOSPCtrl.getContacts(editAssetFormCtrl.asset.contact.location.id)">
-                                  <option data-ng-repeat="location in assetOSPCtrl.locations | orderBy:'id' track by $index" value="{{location.id}}">
-                                      {{location.id}} - {{location.city}}
+                              <select class="form-control form-drop"
+                                      name="location"
+                                      data-ng-model="location"
+                                      ng-options="location.name for location in assetOSPCtrl.locations"
+                                      ng-change="assetOSPCtrl.getContacts(location.id)" required>
+                                  <option class="placeholder" value="" disabled selected>
+                                      Current Location: {{editAssetFormCtrl.asset.location.name}}
                                   </option>
                               </select>
+                              <div ng-messages="assetForm.location.$error" ng-if="assetForm.location.$touched" role="alert">
+                                  <p3 ng-message="required">Required Field</p3>
+                              </div>
                           </div>
                           <div class="row">
                               <div class="left">Contact</div>
-                              <select class="form-control form-drop" id="contact" data-ng-model="editAssetFormCtrl.asset.contact.id">
-                                  <option data-ng-repeat="contact in assetOSPCtrl.contacts | orderBy:'id' track by $index" value="{{contact.id}}">
-                                      {{contact.id}} - {{contact.firstName}} {{contact.surname}}
+                              <select class="form-control form-drop"
+                                      name="contact"
+                                      data-ng-model="contact"
+                                      ng-options="contact.surname for contact in assetOSPCtrl.contacts" required>
+                                  <option class="placeholder" value="" disabled selected>
+                                      Current Contact: {{editAssetFormCtrl.asset.contact.surname}},
+                                      {{editAssetFormCtrl.asset.contact.firstName}}
                                   </option>
                               </select>
+                              <div ng-messages="assetForm.contact.$error" ng-if="assetForm.contact.$touched" role="alert">
+                                  <p3 ng-message="required">Required Field</p3>
+                              </div>
                           </div>
                       </div>
                   </div>
@@ -43,27 +65,45 @@
                       <div data-ng-controller="assetBMOController as assetBMOCtrl">
                       <div class="row">
                           <div class="left">Brand</div>
-                          <select class="form-control form-drop" id="brand" data-ng-model="editAssetFormCtrl.asset.model.brand.id">
-                              <option data-ng-repeat="brand in assetBMOCtrl.brands | orderBy:'id' track by $index" value="{{brand.id}}">
-                                  {{brand.id}} - {{brand.value}}
+                          <select class="form-control form-drop"
+                                  name="brand"
+                                  data-ng-model="brand"
+                                  ng-options="brand.value for brand in assetBMOCtrl.brands" required>
+                              <option class="placeholder" value="" disabled selected>
+                                  Current Brand: {{editAssetFormCtrl.asset.model.brand.value}}
                               </option>
                           </select>
+                          <div ng-messages="assetForm.brand.$error" ng-if="assetForm.brand.$touched" role="alert">
+                              <p3 ng-message="required">Required Field</p3>
+                          </div>
                       </div>
                       <div class="row">
                           <div class="left">Model</div>
-                          <select class="form-control form-drop" id="model" data-ng-model="editAssetFormCtrl.asset.model.id">
-                              <option data-ng-repeat="model in assetBMOCtrl.models | orderBy:'id' track by $index" value="{{model.id}}">
-                                  {{model.id}} - {{model.name}}
+                          <select class="form-control form-drop"
+                                  name="model"
+                                  data-ng-model="model"
+                                  ng-options="model.name for model in assetBMOCtrl.models" required>
+                              <option class="placeholder" value="" disabled selected>
+                                  Current Model: {{editAssetFormCtrl.asset.model.name}}
                               </option>
                           </select>
+                          <div ng-messages="assetForm.model.$error" ng-if="assetForm.model.$touched" role="alert">
+                              <p3 ng-message="required">Required Field</p3>
+                          </div>
                       </div>
                       <div class="row">
                           <div class="left">OS</div>
-                          <select class="form-control form-drop" id="operatingSystem" data-ng-model="editAssetFormCtrl.asset.operatingSystem.id">
-                              <option data-ng-repeat="os in assetBMOCtrl.operatingsystems | orderBy:'id' track by $index" value="{{os.id}}">
-                                  {{os.id}} - {{os.value}}
+                          <select class="form-control form-drop"
+                                  name="operatingSystem"
+                                  data-ng-model="operatingSystem"
+                                  ng-options="operatingSystem.value for operatingSystem in assetBMOCtrl.operatingSystems" required>
+                              <option class="placeholder" value="" disabled selected>
+                                  Current OS: {{editAssetFormCtrl.asset.operatingSystem.value}}
                               </option>
                           </select>
+                          <div ng-messages="assetForm.operatingSystem.$error" ng-if="assetForm.operatingSystem.$touched" role="alert">
+                              <p3 ng-message="required">Required Field</p3>
+                          </div>
                       </div>
                   </div>
                   </div>
@@ -71,26 +111,10 @@
           </div>
              <div class="box below">
                  <h2>Asset Details</h2>
-                 <div class="inner-box-below">
-                     <div class="row">
-                         <div class="left">Property Type</div>
-                         <select class="form-control form-drop" data-ng-controller="assetDetailsController as assetDetailsCtrl" id="propertyType" data-ng-model="editAssetFormCtrl.asset.propertyType.id">
-                             <option data-ng-repeat="propertyType in assetDetailsCtrl.propertyTypes | orderBy:'id' track by $index" value="{{propertyType.id}}">
-                                 {{propertyType.id}} -  {{propertyType.value}}
-                             </option>
-                         </select>
-                     </div>
-                     <div class="row">
-                         <div class="left">Status</div>
-                         <select class="form-control form-drop" data-ng-controller="assetDetailsController as assetDetailsCtrl" id="status" data-ng-model="editAssetFormCtrl.asset.status.id">
-                             <option data-ng-repeat="status in assetDetailsCtrl.statuses | orderBy:'id' track by $index" value="{{status.id}}">
-                                 {{status.id}} -  {{status.value}}
-                             </option>
-                         </select>
-                     </div>
+                 <div class="inner-box-below" data-ng-controller="assetDetailsController as assetDetailsCtrl">
                          <div class="row">
                              <div class="left" >Serial Number</div>
-                             <input type="text" id="assetSerialNo" data-ng-model="editAssetFormCtrl.asset.assetSerialNo" class="form-control form-input" />
+                             <input type="text" id="assetSerialNo" data-ng-model="editAssetFormCtrl.asset.assetSerialNo" class="form-control form-input"/>
                          </div>
                          <div class="row">
                              <div class="left">Host Name</div>
@@ -101,8 +125,37 @@
                          <input type="text" id="assetLabel" data-ng-model="editAssetFormCtrl.asset.assetLabel" class="form-control form-input" />
                      </div>
                      <div class="row">
+                         <div class="left">Property Type</div>
+                         <select class="form-control form-drop"
+                                 name="propertyType"
+                                 data-ng-model="propertyType"
+                                 ng-options="propertyType.value for propertyTypes in assetDetailsCtrl.propertyTypes" required>
+                             <option value="" disabled selected>
+                                 {{editAssetFormCtrl.asset.propertyType.value}}
+                             </option>
+                         </select>
+                         <div ng-messages="assetForm.propertyType.$error" ng-if="assetForm.propertyType.$touched" role="alert">
+                             <p3 ng-message="required">Required Field</p3>
+                         </div>
+                     </div>
+                     <div class="row">
+                         <div class="left">Status</div>
+                         <select class="form-control form-drop"
+                                 name="status"
+                                 data-ng-model="status"
+                                 ng-options="status.value for statuses in assetDetailsCtrl.statuses" required>
+                             <option value="" disabled selected>
+                                 {{editAssetFormCtrl.asset.status.value}}
+                             </option>
+                         </select>
+                         <div ng-messages="assetForm.status.$error" ng-if="assetForm.status.$touched" role="alert">
+                             <p3 ng-message="required">Required Field</p3>
+                         </div>
+                     </div>
+                     <div class="row">
                          <div class="left">Last Ticket</div>
-                         <input type="text" id="aoSDMLastTicketNumber" data-ng-model="editAssetFormCtrl.asset.aoSDMLastTicketNumber" class="form-control form-input" />
+                         <input type="text" id="aoSDMLastTicketNumber" data-ng-model="editAssetFormCtrl.asset.aoSDMLastTicketNumber"
+                                class="form-control form-input" />
                      </div>
                  </div>
              </div>

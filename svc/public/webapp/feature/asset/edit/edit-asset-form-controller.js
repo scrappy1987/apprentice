@@ -17,6 +17,7 @@
          assetRepository.getAsset(vm.asset.id).then(function (results) {
              console.log("Edit Asset getAsset called");
              vm.asset = results;
+             console.log(vm.asset);
          }, function (error) {
              vm.error = true;
              vm.errorMessage = error;
