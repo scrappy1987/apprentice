@@ -10,18 +10,22 @@
         vm.hasValidationError = false;
         vm.assets = {};
 
+        vm.getAssets = function() {
 
-        vm.getAssets = function(id) {
-
+            if(vm.currentContactId === undefined || vm.currentLocationId === undefined)
+            {
+                var missingInformationDialog = BootstrapDialog.show({
+                            message: 'Make sure all of the fields are completed before searching!'
+                });
+                return;
+            }
             var waitingDialog = BootstrapDialog.show({
                 message: 'Please Wait - retrieving asset'
             });
 
-            assetRepository.getAssetFromContact(id).then (function(results) {
-
-            waitingDialog.close();
-                    console.log(results);
-
+            assetRepository.getAssetFromContact(vm.currentContactId).then (function(results) {
+                waitingDialog.close();
+                console.log(results);
             if (results.length < 1) {
 
                  BootstrapDialog.confirm({
@@ -42,6 +46,14 @@
                 vm.error = true;
                 vm.errorMessage = error;
             });
+       }
+
+       vm.setCurrentContactId = function(id) {
+           vm.currentContactId = id;
+       }
+
+       vm.setCurrentLocationId = function(id) {
+           vm.currentLocationId = id;
        }
 
        vm.deleteAsset = function(asset) {
@@ -72,8 +84,5 @@
                 }
             })
         };
-
-
-
-}
+    }
 }());

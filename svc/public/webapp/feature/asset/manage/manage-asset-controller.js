@@ -6,8 +6,6 @@
     function ManageAssetCtrl (functionalOrganisationRepository, locationRepository, contactRepository, assetRepository) {
         var vm = this;
 
-
-
         functionalOrganisationRepository.getFunctionalOrganisation().then(function (results) {
             vm.functionalOrgs = results;
         }, function (error) {
@@ -28,6 +26,9 @@
 
 
         vm.getContacts = function(id) {
+            if (id === undefined){
+                return;
+            }
             console.log(id);
             contactRepository.getContact(id).then(function (results) {
                 vm.contacts = results;
