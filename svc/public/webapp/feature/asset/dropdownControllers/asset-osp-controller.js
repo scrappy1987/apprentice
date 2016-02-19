@@ -34,7 +34,10 @@
          * Contact
          */
         vm.getContacts = function(id) {
-
+            if(id === undefined){
+                console.log("Contact id undefined, aborting get request.")
+                return;
+            }
             console.log(id);
             contactRepository.getContact(id).then(function (results) {
                 vm.contacts = results;
