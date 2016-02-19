@@ -14,7 +14,6 @@
                           <div class="row">
                               <div class="left">Functional Org</div>
                               <select class="form-control form-drop"
-                                      id="functionalOrg"
                                       name="functionalOrg"
                                       data-ng-model="functionalOrg"
                                       ng-options="functionalOrg.account for functionalOrg in assetOSPCtrl.functionalOrgs"
@@ -30,7 +29,6 @@
                           <div class="row">
                               <div class="left">Site/Location</div>
                               <select class="form-control form-drop"
-                                      id="location"
                                       name="location"
                                       data-ng-model="location"
                                       ng-options="location.name for location in assetOSPCtrl.locations"
@@ -46,7 +44,6 @@
                           <div class="row">
                               <div class="left">Contact</div>
                               <select class="form-control form-drop"
-                                      id="contact"
                                       name="contact"
                                       data-ng-model="contact"
                                       ng-options="contact.firstName + ' ' + contact.surname for contact in assetOSPCtrl.contacts" required>
@@ -69,7 +66,6 @@
                       <div class="row">
                           <div class="left">Brand</div>
                           <select class="form-control form-drop"
-                                  id="brand"
                                   name="brand"
                                   data-ng-model="brand"
                                   ng-options="brand.value for brand in assetBMOCtrl.brands" required>
@@ -84,7 +80,6 @@
                       <div class="row">
                           <div class="left">Model</div>
                           <select class="form-control form-drop"
-                                  id="model"
                                   name="model"
                                   data-ng-model="model"
                                   ng-options="model.name for model in assetBMOCtrl.models" required>
@@ -99,7 +94,6 @@
                       <div class="row">
                           <div class="left">OS</div>
                           <select class="form-control form-drop"
-                                  id="operatingSystem"
                                   name="operatingSystem"
                                   data-ng-model="operatingSystem"
                                   ng-options="operatingSystem.value for operatingSystem in assetBMOCtrl.operatingSystems" required>
@@ -120,7 +114,7 @@
                  <div class="inner-box-below" data-ng-controller="assetDetailsController as assetDetailsCtrl">
                          <div class="row">
                              <div class="left" >Serial Number</div>
-                             <input type="text" id="assetSerialNo"
+                             <input type="text" name="assetSerialNo"
                                     data-ng-model="assetSerialNo"
                                     placeholder="Current Serial Number: {{editAssetFormCtrl.asset.assetSerialNo}}"
                                     class="form-control form-input" required/>
@@ -130,7 +124,7 @@
                          </div>
                          <div class="row">
                              <div class="left">Host Name</div>
-                             <input type="text" id="computerTcpIpHostName"
+                             <input type="text" name="computerTcpIpHostName"
                                     data-ng-model="computerTcpIpHostName"
                                     placeholder="Current Host Name:  {{editAssetFormCtrl.asset.computerTcpIpHostName}}"
                                     class="form-control form-input" required />
@@ -140,7 +134,7 @@
                          </div>
                      <div class="row">
                          <div class="left">Label</div>
-                         <input type="text" id="assetLabel"
+                         <input type="text" name="assetLabel"
                                 data-ng-model="assetLabel" class="form-control form-input"
                                 placeholder="Current Label: {{editAssetFormCtrl.asset.assetLabel}}" required/>
                          <div>
@@ -150,7 +144,6 @@
                      <div class="row">
                          <div class="left">Property Type</div>
                          <select class="form-control form-drop"
-                                 id="propertyType"
                                  name="propertyType"
                                  data-ng-model="propertyType"
                                  ng-options="propertyType.value for propertyType in assetDetailsCtrl.propertyTypes" required>
@@ -165,7 +158,6 @@
                      <div class="row">
                          <div class="left">Status</div>
                          <select class="form-control form-drop"
-                                 id="status"
                                  name="status"
                                  data-ng-model="status"
                                  ng-options="status.value for status in assetDetailsCtrl.statuses" required>
@@ -180,7 +172,7 @@
                      <div class="row">
                          <div class="left">Last Ticket</div>
                          <input type="text"
-                                id="lastTicket"
+                                name="aoSDMLastTicketNumber"
                                 data-ng-model="aoSDMLastTicketNumber"
                                 placeholder="Current Last Ticket: {{editAssetFormCtrl.asset.aoSDMLastTicketNumber}}"
                                 class="form-control form-input" required/>
@@ -190,7 +182,7 @@
                      </div>
                  </div>
              </div>
-             <div class="button-center"><button type="submit" class="btn btn-primary">Update</button></div>
+             <div class="button-center"><button type="submit" ng-disabled="assetForm.$invalid" class="btn btn-primary">Update</button></div>
         </form>
     </div>
  </div>
